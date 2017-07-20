@@ -1,0 +1,49 @@
+main, footer{
+	padding-left:300px;
+}
+main .container {
+	width: 90%;
+	margin: 0 5%;
+	padding: 0;
+}
+footer .container {
+	width: 90%;
+	margin: 0 5%;
+	padding: 0;
+}
+footer {
+    background: #fafafa;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+}
+#wrapper {
+	padding-top: 50px;
+}
+.side-nav li>a {
+
+    font-size: 12px;
+ 
+}
+
+tr.vencida {
+    background: #fbcdcd;
+}
+.btn, .btn-large{
+	margin-top:5px;  
+} 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto; 
+  }
+@media only screen and (max-width: 992px){
+header, main, footer {
+    padding-left: 0;
+}
+
+}

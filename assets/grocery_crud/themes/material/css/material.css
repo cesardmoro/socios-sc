@@ -1,0 +1,15 @@
+
+.DTTT_container.ui-buttonset.ui-buttonset-multi {
+    float: right;
+    margin-top: -45px;
+}
+
+#FormLoading {
+	display:none;
+}
+input.datepicker-input {
+    width: auto!important; 
+}
+.form-display-as-box {
+    margin: 20px 0 10px 0;
+}

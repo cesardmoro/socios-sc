@@ -42,8 +42,8 @@ class Login extends CI_Controller {
 					$this->load->library('email');
 					$this->load->config('email');
 			        $this->email->initialize($this->config->item('email'));
-			        $this->email->from('socios@somoscerveceros.com.ar	', 'Somos Cerveceros');
-			        $this->email->to($socio->email);   
+			        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+			        $this->email->to($socio->email);  
 			        $this->email->set_mailtype("html");
 			        $this->email->subject('Somos Cerveceros | Registro socios');
 					$this->email->message( $body);  

@@ -34,6 +34,11 @@ class Socio extends CI_Controller {
 		$view = $this->load->view('socio/cuota_al_dia', array('dni' => $dni, 'numero' => $numero), true);
 		$this->load->view('base', array('view' => $view)); 
 	}
+	public function manual(){
+		$view = $this->load->view('manual', array(), true);
+		$this->load->view('base', array('view' => $view)); 
+	
+	}
 
 }
 

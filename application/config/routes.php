@@ -56,3 +56,4 @@ $route['cuota'] = "socio/cuota";
 $route['couta'] = "socio/cuota"; 
 $route['cuota/(:num)/(:num)'] = "socio/cuota/$1/$2";
 $route['couta/(:num)/(:num)'] = "socio/cuota/$1/$2";
+$route['manual'] = "socio/manual";

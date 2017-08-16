@@ -11,8 +11,9 @@ class Account_Model extends CI_Model {
 		$this->db->where('a.rowid', $id);
 		return $this->db->get()->row();
 	}
-	function getToken($socio){
-		$str = hash ( "sha256", rand().uniqid().$socio->rowid); 
+	function getToken($socio, $recover = false){
+		$recCode = ($recover) ? "recoverPass" : '';   
+		$str = hash ( "sha256", rand().uniqid().$socio->rowid.$recCode);  
 		$data = array('adherent_id' => $socio->rowid, 'token' => $str, 'created' => time());
 		$this->db->where('adherent_id', $socio->rowid)->delete('sc_adherent_tokens'); 
 		$this->db->insert('sc_adherent_tokens', $data);
@@ -32,6 +33,15 @@ class Account_Model extends CI_Model {
 				'adherent_id' => $socio->rowid]; 
 
 		$this->db->insert('sc_accounts', $data);  
+		$this->db->where('adherent_id', $socio->rowid)->delete('sc_adherent_tokens'); 
+	}
+	function updatePassword($socio, $password){
+		
+		$data = [
+				'password' => hash ( "sha256", $password), 
+				]; 
+
+		$this->db->where('adherent_id', $socio->rowid)->update('sc_accounts', $data);    
 		$this->db->where('adherent_id', $socio->rowid)->delete('sc_adherent_tokens'); 
 	}
 	function getUserWithAdherent($adherent_id){

@@ -1,7 +1,6 @@
-"Hola {socio}!
-
-Confirmamos que no vas a asistir a la capacitación {capacitación} el día {fecha y hora} en {lugar} y te agradecemos por permitir que otro socio asista en tu lugar.
-
+Has generado una recuperación de contraseña<br>
+<br>
+Para generar tu nueva clave entra al siguiente link:<br>
 <br>
 <a href="<?php echo $link?>"><?php echo $link?></a><br>
 <br>

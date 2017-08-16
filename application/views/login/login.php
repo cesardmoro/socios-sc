@@ -14,9 +14,14 @@
       <input class="form-control " id="password" name="password" required type="password">
       <label for="password">Clave</label>
 	</div>
+     <div class="col s12 ">
+     <h6> <a href="<?php echo base_url()?>login/recuperar">Olvide mi contraseña</a></h6>
+     </div>
      <div class="col s12 right-align">
+
   		<button type="submit" class="btn waves-effect light-blue">Iniciar sesión</button>
 	</div>
+
   <div class="col s12 ">
     <h6>Si no tenes usuario <a href="<?php echo base_url()?>login/nuevo">Generaló aca</a></h6>
   </div>

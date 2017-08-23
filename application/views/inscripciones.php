@@ -67,6 +67,7 @@
 				<td><?php echo $participante->email?></td>
 				<td><?php echo $participante->phone_mobile?></td>
 				<td><?php echo ucfirst($participante->estado_couta)?></td>				
+				<td><a onclick="return confirm('Esta seguro que desea eliminar esta inscripción')" class="btn red" href="<?php echo base_url().'admin/eliminar_inscripcion/'.$capacitacion->id.'/'.$participante->id?>">Eliminar</a></td>	  			
 			</tr>
 			<?php }?>
 	</tbody>

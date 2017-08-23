@@ -9,7 +9,7 @@
       <input class="form-control" id="numero" name="numero" required type="number">
       <label for="numero">Numero de socio</label>
     </div>
-
+ 
      <div class="col s12 right-align">
   		<button type="submit" class="btn waves-effect light-blue">Generar usuario</button>
 	</div>

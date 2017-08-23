@@ -1,6 +1,9 @@
 main, footer{
 	padding-left:300px;
 }
+main.public, footer.public{
+  padding-left:0;
+}
 main .container {
 	width: 90%;
 	margin: 0 5%;
@@ -41,6 +44,11 @@ body {
   main {
     flex: 1 0 auto; 
   }
+
+a.text-link{
+  text-transform: none!important;
+  margin:0!important;
+}
 @media only screen and (max-width: 992px){
 header, main, footer {
     padding-left: 0;

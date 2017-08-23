@@ -52,6 +52,7 @@
             	</div>
             </div>
             <div class="card-action">
+            <?php if($socio) {?>
 				<?php if($capacitacion->inscripcion){?>
               		<a  href="<?php echo base_url()?>capacitaciones/desinscribirse/<?php echo $capacitacion->id; ?>">Cancelar Inscripción</a>
               	<?php } else {?>
@@ -61,6 +62,12 @@
 					 <?php }?>
              	 	</a>
              	 <?php }?>
+         	 <?php }else{?>
+         	 <div class="row">Si sos socio <a class="text-link" href="<?php echo base_url();?>login">logueate</a>. Sino inscribite completando aca:</div>
+         	 		<?php echo $form ?>
+         	
+
+         	 <?php } ?>
              	 
             </div>
           </div>

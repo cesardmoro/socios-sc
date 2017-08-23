@@ -71,7 +71,7 @@ class Login extends CI_Controller {
 			$socio = $this->Account_Model->getSocio($this->input->post("numero"));
 			if($socio){        
 				$user = $this->Account_Model->getUserWithAdherent($socio->rowid); 
-			echo $this->db->last_query();
+			
 				if($user){
 					if($socio->email == $this->input->post('email')){
 						$token = $this->Account_Model->getToken($socio, true);

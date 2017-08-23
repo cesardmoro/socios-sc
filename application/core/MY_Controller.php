@@ -7,22 +7,32 @@ class MY_Controller extends CI_Controller {
 	{		
 		parent::__construct();
 		$this->load->helper('url');
-		if(!$this->session->userdata('socio')){
-			$this->session->set_userdata('referred_from', current_url());
-			redirect('login');
-		}
+		
 		$this->secured = $secured;
+		$this->require_access_permissions();
 
-		if($this->secured) {
-			$this->checkSecurity();
-		}
+		
 	}
 	public function checkSecurity (){
 		if($this->session->userdata('role')!="ADMIN"){
 			die('No tiene acceso a esta pagina');
 		} 
 	}
-	
+	private function require_access_permissions(){
+		$class = $this->router->fetch_class();
+		$method = $this->router->fetch_method();
+
+		if(!(strpos($method, 'public') !== false)){
+			if(!$this->session->userdata('socio')){
+				$this->session->set_userdata('referred_from', current_url());
+				redirect('login');
+			}
+		}
+		if($this->secured) {
+			$this->checkSecurity();
+		}
+
+	}
 
 }
 

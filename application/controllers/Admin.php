@@ -11,6 +11,7 @@ class Admin extends MY_Controller {
 		$this->load->helper('url');
 		$this->load->model('Eventos_Model');
 		$this->load->library('grocery_CRUD');
+		$this->load->config("email");
 
 	}
 	public function capacitaciones()
@@ -50,7 +51,18 @@ class Admin extends MY_Controller {
 
 		$output->output = $this->load->view('inscripciones', $data, true) ;
 		$this->load->view('main',(array)$output); 
+	} 
+	public function eliminar_inscripcion($id_evento, $id_inscripcion){
+		$this->Eventos_Model->eliminar_inscripcion($id_evento, $id_inscripcion);
+		$this->session->set_flashdata('message', 'Se ha eliminado la inscripción, se notificaran los usuarios que estaban en lista de espera y entran a cupo');  
+
+		redirect('admin/inscripciones/'.$id); 
 	}
+	public function test( $id_evento, $id_inscripcion){
+		 $this->Eventos_Model->notificar_participantes( $id_evento, $id_inscripcion);
+
+	}
+
 
 }
 

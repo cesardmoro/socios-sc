@@ -25,7 +25,8 @@ class Admin extends MY_Controller {
 			$crud->required_fields('titulo', "fecha");
 			$crud->columns('titulo','fecha','descripcion', 'oradores', 'lugar');
 			$crud->set_field_upload('foto','assets/uploads/eventos');
-			$crud->add_action('Participantes', '', 'admin/inscripciones', 'green');
+			$crud->add_action('Participantes', '', 'admin/inscripciones', 'green'); 
+			$crud->add_action('Link Publico', '', 'capacitaciones/capacitacion_public', 'green');
 			$crud->unset_read();
 			$crud->unset_jquery();
 
@@ -56,7 +57,7 @@ class Admin extends MY_Controller {
 		$this->Eventos_Model->eliminar_inscripcion($id_evento, $id_inscripcion);
 		$this->session->set_flashdata('message', 'Se ha eliminado la inscripción, se notificaran los usuarios que estaban en lista de espera y entran a cupo');  
 
-		redirect('admin/inscripciones/'.$id); 
+		redirect('admin/inscripciones/'.$id_evento); 
 	}
 	public function test( $id_evento, $id_inscripcion){
 		 $this->Eventos_Model->notificar_participantes( $id_evento, $id_inscripcion);

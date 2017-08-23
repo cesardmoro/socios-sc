@@ -126,13 +126,14 @@ class Eventos_Model extends CI_Model {
 	}
 	public function eliminar_inscripcion($id_evento, $id_inscripcion){ 
 	 	$this->Eventos_Model->notificar_participantes( $id_evento, $id_inscripcion); 
-		$this->db->where('id', $id_inscripcion)->where('id_evento', $id_inscripcion)->delete('sc_eventos_inscripciones');
+		$this->db->where('id', $id_inscripcion)->where('id_evento', $id_evento)->delete('sc_eventos_inscripciones'); 
 	}
 	public function obtener_participantes_notificar($id_evento, $id_inscripcion){
 		$cap = $this->get_capacitacion($id_evento);
 		$participantes = $this->get_participantes($id_evento);
 		$vacantes = $cap->vacantes;
-		$notify = false;
+		$notify = false; 
+		if(empty($participantes)) return false;
 		foreach($participantes as $key => $participante){
 			
 
@@ -151,7 +152,12 @@ class Eventos_Model extends CI_Model {
 			//el proximo participante a notificar es  el cupo +1
 			// 3 -1 = 2 
 			$key = ($cap->cupos-$cap->reservados);
-			return $participantes[$key];
+			if(array_key_exists($key, $participantes)){
+				return $participantes[$key];
+			}else{
+				//si no hay no lo tengo q notificar
+				return false;
+			}
 		}
 		return false; 		
 	}
@@ -173,7 +179,8 @@ class Eventos_Model extends CI_Model {
 	        $this->email->set_mailtype("html");
 	        $this->email->subject('Somos Cerveceros | Cupo libre - Confirmacion de inscripción');
 			$this->email->message($body);  
-			$r = $this->email->send(); 		}
+			$r = $this->email->send(); 		
+		}
 	}
 }
 

@@ -1,6 +1,5 @@
-"Hola {socio}!
-
-Confirmamos que no vas a asistir a la capacitación {capacitación} el día {fecha y hora} en {lugar} y te agradecemos por permitir que otro socio asista en tu lugar.
+"Hola!
+Gracias por registrarte en el portal de socios de somos cerveceros, para continuar con la creación de tu usuario utiliza el siguiente link:
 
 <br>
 <a href="<?php echo $link?>"><?php echo $link?></a><br>

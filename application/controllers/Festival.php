@@ -54,8 +54,18 @@ class Festival extends MY_Controller {
 		else{ 
 			$this->session->set_flashdata('error', 'No se puede inscribir a la capacitación porque tiene la couta vencida');  
 			redirect('dashboard') ;
-		}
+		} 
 	} 
+	function contact_public(){
+		$data = $this->input->post();
+		$body = $this->load->view('festival/email-contacto', $data, true);  
+        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+        $this->email->to('festival@somoscerveceros.com.ar');     
+        $this->email->set_mailtype("html");
+        $this->email->subject('Somos Cerveceros | Contacto Web Festival ');
+		$this->email->message($body);     
+        $r = $this->email->send();  
+	}
 }
 
 /* End of file Eventos.php */

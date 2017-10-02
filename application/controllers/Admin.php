@@ -67,6 +67,7 @@ class Admin extends MY_Controller {
 		$crud->set_theme('material');
 		$crud->set_table('sc_eventos_inscripciones');
 		$crud->set_subject('Inscripciones');
+		
 		$crud->unset_read();
 		$crud->unset_jquery();
 

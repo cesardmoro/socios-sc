@@ -55,3 +55,12 @@ header, main, footer {
 }
 
 }
+
+
+.chosen-container {
+    min-width: 250px;
+}
+
+.chosen-container-single .chosen-search input[type="text"] {
+    box-sizing: border-box;
+}

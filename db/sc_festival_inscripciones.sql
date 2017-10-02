@@ -18,3 +18,7 @@ COLLATE='latin1_swedish_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=41
 ;
+
+ALTER TABLE `sc_festival_inscripciones`
+	ADD COLUMN `nro_compobante` VARCHAR(50) NOT NULL AFTER `estado_pago`,
+	ADD COLUMN `fecha_pago` DATE NOT NULL AFTER `nro_compobante`;

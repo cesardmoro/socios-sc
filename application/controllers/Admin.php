@@ -65,7 +65,7 @@ class Admin extends MY_Controller {
 	public function inscripciones($id){
 		$crud = new grocery_CRUD();
 		$crud->set_theme('material');
-		$crud->set_table('sc_eventos');
+		$crud->set_table('sc_eventos_inscripciones');
 		$crud->set_subject('Inscripciones');
 		$crud->unset_read();
 		$crud->unset_jquery();
@@ -74,7 +74,7 @@ class Admin extends MY_Controller {
 		$data['participantes'] = $this->Eventos_Model->get_participantes($id);  
 		$data['capacitacion'] = $this->Eventos_Model->get_capacitacion($id);
 
-		$output->output = $this->load->view('inscripciones', $data, true) ;
+		$output->output = $this->load->view('inscripciones', $data, true);
 		$this->load->view('main',(array)$output); 
 	} 
 	public function eliminar_inscripcion($id_evento, $id_inscripcion){

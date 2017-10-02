@@ -1,36 +1,4 @@
-<script type='text/javascript'>
 
-
-	var unique_hash = '062877d532d9d621b8f7906685ff15e2';
-
-	var displaying_paging_string = "Mostrando _START_ a _END_ de _TOTAL_ registros";
-	var filtered_from_string 	= "(filtrando de _MAX_ total registros)";
-	var show_entries_string 	= "Mostrar _MENU_ registros";
-	var search_string 			= "Buscar";
-	var list_no_items 			= "No hay registros para mostrar";
-	var list_zero_entries 			= "Mostrando 0 a 0 de 0 registros";
-
-	var list_loading 			= "Cargando...";
-
-	var paging_first 	= "Primero";
-	var paging_previous = "Anterior";
-	var paging_next 	= "Siguiente";
-	var paging_last 	= "Último";
-
-	var message_alert_delete = "¿Esta seguro que quiere eliminar este registro?";
-
-	var default_per_page = 10;
-
-	var unset_export = false;
-	var unset_print = false;
-
-	var export_text = 'Exportar';
-	var print_text = 'Imprimir';
-
-	
-	var datatables_aaSorting = [[ 0, "asc" ]];
-
-</script>
 <h3>Inscripciones</h3> 
 <h5><?php echo $capacitacion->titulo ?></h5>
 <div class="row">
@@ -43,7 +11,7 @@
 
 </div>
 <?php if($participantes) {?>
-<table cellpadding="0" cellspacing="0" border="0" class="responsive-table striped display "  id="062877d532d9d621b8f7906685ff15e2">
+<table cellpadding="0" cellspacing="0" border="0" class="groceryCrudTable responsive-table striped display " id="<?php echo uniqid(); ?>">
 	<thead>
 		<tr>
 							<th>Socio numero</th> 

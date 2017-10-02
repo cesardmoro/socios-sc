@@ -1,5 +1,5 @@
 
-<table cellpadding="0" cellspacing="0" border="0" class="responsive-table striped display " id="<?php echo uniqid(); ?>">
+<table cellpadding="0" cellspacing="0" border="0" class="groceryCrudTable responsive-table striped display " id="<?php echo uniqid(); ?>">
 	<thead>
 		<tr>
 			<?php foreach($columns as $column){?>

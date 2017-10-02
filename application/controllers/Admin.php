@@ -20,6 +20,7 @@ class Admin extends MY_Controller {
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('material');
+			$crud->order_by('fecha');
 			$crud->set_table('sc_eventos');
 			$crud->set_subject('Capacitaciones');
 			$crud->required_fields('titulo', "fecha");
@@ -38,6 +39,29 @@ class Admin extends MY_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	} 
+	public function festival(){
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('material');
+			$crud->order_by('fecha_inscripcion');
+			$crud->set_table('sc_festival_inscripciones');
+			$crud->set_subject('Inscripciones');
+			$crud->field_type('id_socio', 'hidden');
+
+			$crud->field_type('estado_pago','dropdown',
+			array('0' => 'No pagado', '1' => 'Pagado'));  
+			$crud->unset_read();
+			$crud->unset_jquery(); 
+
+			$output = $crud->render(); 
+ 
+			$this->load->view('main',(array)$output);
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
 	public function inscripciones($id){
 		$crud = new grocery_CRUD();
 		$crud->set_theme('material');

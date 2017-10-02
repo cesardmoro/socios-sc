@@ -91,7 +91,7 @@ class Eventos_Model extends CI_Model {
 			->where('telefono', $data['telefono']) 
 			->where('dni', $data['dni'])->get('sc_eventos_inscripciones')->row(); 
 	 		$this->Eventos_Model->notificar_participantes( $id_evento, $inscripcion->id); 
-	 		die('tete');
+	 		 
 			$this->db->where('id', $inscripcion->id)->delete('sc_eventos_inscripciones'); 
 			
 

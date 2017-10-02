@@ -47,12 +47,22 @@
     </div></li>
  	<li><div class="divider"></div></li>
    	<li><a class="subheader">Dashbord</a></li>
-   	    <li><a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons">library_books</i>Capacitaciones</a></li>
-    
+   	    <li>
+   	    	<a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons">library_books</i>Capacitaciones</a>
+   	    </li>
+
  	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
- 	<li><div class="divider"></div></li>
-   	<li><a class="subheader">Admin</a></li>
+
+	    <li>
+	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons">local_activity</i>Festival</a>
+	    </li>
+
+	  <?php } ?> 
+ 	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
+	 	<li><div class="divider"></div></li>
+	   	<li><a class="subheader">Admin</a></li>
    	    <li><a href="<?php echo site_url('admin/capacitaciones')?>"><i class="material-icons">library_books</i>Administrar Capacitaciones</a></li>
+   	    <li><a href="<?php echo site_url('admin/festival')?>"><i class="material-icons">local_activity</i>Administrar Festival</a></li>
     
 	<?php } ?>
 	<li><div class="divider"></div></li>

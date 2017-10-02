@@ -12,7 +12,7 @@ class Festival extends MY_Controller {
 		$this->load->model('Festival_Model');
 		$this->load->config('email');
 	}
-	public function index(){
+	public function index($id = null){ 
 		$socio = $this->session->userdata('socio');
 		if($socio && $socio->datefin >= date('Y-m-d')){   
 			if(!$this->input->post()){

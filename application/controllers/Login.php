@@ -95,8 +95,8 @@ class Login extends CI_Controller {
 				        }else{
 				 			$this->session->set_flashdata('error', 'Ocurrio un error al enviar el email, intenta mas tarde'); 
 						}
-					}else{ 
-						$this->session->set_flashdata('error', 'Ese email no cohincide con el numero de socio ingresado');	
+					}else{  
+						$this->session->set_flashdata('error', 'Ese email no coincide con el numero de socio ingresado');	
 					}
 				}else{
 					$this->session->set_flashdata('error', 'Ese numero de socio no esta registrado, ingresá a "Generalo aca"'); 

@@ -49,8 +49,8 @@ class Admin extends MY_Controller {
 			$crud->set_subject('Inscripciones');
 			$crud->field_type('id_socio', 'hidden');
 
-			$crud->field_type('estado_pago','dropdown',
-			array('0' => 'No pagado', '1' => 'Pagado'));  
+			$crud->field_type('estado_pago','dropdown', 
+			array('0' => 'No pagado', '1' => 'Pagado', '2' => 'Bonificado'));  
 			$crud->unset_read();
 			$crud->unset_jquery(); 
 

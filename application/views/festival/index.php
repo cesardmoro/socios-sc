@@ -41,6 +41,7 @@
 	</div>
 </div>
 <h5>Formulario inscripción</h5>
+<h6>Validez de Reserva 7 días para realizar el pago</h6> 
 <form action="" method="post">
 	<div class="input-field col s12">
       <input class="form-control " id="nombre" name="nombre" required type="text">

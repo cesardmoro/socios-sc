@@ -51,6 +51,8 @@ class Admin extends MY_Controller {
 
 			$crud->field_type('estado_pago','dropdown', 
 			array('0' => 'No pagado', '1' => 'Pagado', '2' => 'Bonificado'));  
+			$crud->add_action('Enviar confirmación de pago', '', 'admin/confirmar_pago_festival', 'green');
+  
 			$crud->unset_read();
 			$crud->unset_jquery(); 
 
@@ -60,6 +62,25 @@ class Admin extends MY_Controller {
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	public function confirmar_pago_festival($id){
+		$this->load->model('Festival_Model'); 
+		$inscripcion = $this->Festival_Model->get_inscripcion($id);
+		if($inscripcion->estado_pago != null ){ 
+			$body = $this->load->view('festival/email-confirmacion', array('inscripcion' => $inscripcion, 'packs' => array('Pre-Reserva pack completo socios', 'Pack completo', 'Pack acompañante', 'Pack fiesta de cierre')), true); 
+			$this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+			$this->email->to($inscripcion->email);     
+			$this->email->set_mailtype("html");
+			$this->email->subject('Somos Cerveceros | Confirmación de Pago Festival');
+			$this->email->message($body);    
+			$r = $this->email->send();  
+			$this->session->set_flashdata('message', 'Se notifico por email la confirmación de pago');   	
+			redirect('admin/festival/');  
+		}else{
+			$this->session->set_flashdata('error', 'No ha cargado aun el pago');   
+			redirect('admin/festival/'); 
+
 		}
 	}
 	public function inscripciones($id){

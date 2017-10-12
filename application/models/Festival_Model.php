@@ -15,6 +15,10 @@ class Festival_Model extends CI_Model {
  		}else return false;
 
 	}
+	public function get_inscripcion($id){ 
+		$row = $this->db->select('*')->where('id', $id)->get('sc_festival_inscripciones')->row();
+		return $row;
+	}
 
 }
 

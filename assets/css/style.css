@@ -70,8 +70,8 @@ ul#nav-mobile.collapsed {
 
 .button-collapse .material-icons {
     z-index: 999;
-    position: relative;
-    padding-left: 10px;
+    position: fixed;
+    padding-left: 10px; 
     padding-top: 10px;
 }
 ul#nav-mobile.collapsed .material-icons {

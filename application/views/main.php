@@ -23,21 +23,20 @@
 	<?php endforeach;
 	} ?> 
 	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-	<!-- Compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script src="<?php echo base_url()?>assets/js/main.js"></script>
 
 
-	<!-- Compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet"> 
 </head>
 <body>
-	<ul id="nav-mobile" class="side-nav fixed">
+	<ul id="nav-mobile" class="side-nav">
     <li><div class="userView">
 		   <div class="container center-align">
 			  <img src="<?php echo base_url()?>assets/img/logo.svg" width="1">
@@ -48,29 +47,29 @@
  	<li><div class="divider"></div></li>
    	<li><a class="subheader">Dashbord</a></li>
    	    <li>
-   	    	<a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons">library_books</i>Capacitaciones</a>
+   	    	<a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Capacitaciones">library_books</i>Capacitaciones</a>
    	    </li>
 
  	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
 
 	    <li>
-	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons">local_activity</i>Festival</a>
+	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Festival">local_activity</i>Festival</a>
 	    </li>
 
 	  <?php } ?> 
  	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
 	 	<li><div class="divider"></div></li>
 	   	<li><a class="subheader">Admin</a></li>
-   	    <li><a href="<?php echo site_url('admin/capacitaciones')?>"><i class="material-icons">library_books</i>Administrar Capacitaciones</a></li>
-   	    <li><a href="<?php echo site_url('admin/festival')?>"><i class="material-icons">local_activity</i>Administrar Festival</a></li>
+   	    <li><a href="<?php echo site_url('admin/capacitaciones')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Capacitaciones">library_books</i>Administrar Capacitaciones</a></li>
+   	    <li><a href="<?php echo site_url('admin/festival')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Festival">local_activity</i>Administrar Festival</a></li>
     
 	<?php } ?>
 	<li><div class="divider"></div></li>
     <li><a href='<?php echo site_url('dashboard/logout')?>'>Logout</a></li>
   </ul>
-  <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Menu">menu</i></a>
  	<main>
-
+ 
 	<div style='height:20px;'></div>  
     <div class="container">
     	<?php if($this->session->flashdata('message')){ ?>
@@ -107,5 +106,6 @@
 		
         <div class="container">© 2008-2017 Somos Cerveceros<a class="right" href="https://github.com/cesardmoro">Desarrollado por Cesar Moro - Socio 977</a> </div>  
         </footer>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 main, footer{
-	padding-left:300px;
+	padding-left:30px;
 }
 main.public, footer.public{
   padding-left:0;
@@ -63,4 +63,25 @@ header, main, footer {
 
 .chosen-container-single .chosen-search input[type="text"] {
     box-sizing: border-box;
+}
+ul#nav-mobile.collapsed {
+    transform: translateX(-85%)!important;
+}
+
+.button-collapse .material-icons {
+    z-index: 999;
+    position: relative;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+ 
+
+ul#nav-mobile.collapsed .material-icons {
+    position: absolute; 
+    right: -20px;
+}
+
+.material-tooltip.hidden .backdrop, .material-tooltip.hidden span {
+    display: none;
 }

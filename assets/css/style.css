@@ -74,14 +74,17 @@ ul#nav-mobile.collapsed {
     padding-left: 10px;
     padding-top: 10px;
 }
-
- 
-
 ul#nav-mobile.collapsed .material-icons {
     position: absolute; 
     right: -20px;
 }
-
 .material-tooltip.hidden .backdrop, .material-tooltip.hidden span {
     display: none;
+}
+.btn, .btn-large{
+    white-space:nowrap;
+} 
+th.ui-state-default {
+    border: none;
+    white-space: nowrap;
 }

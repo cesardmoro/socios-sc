@@ -51,9 +51,9 @@ class Admin extends MY_Controller {
 
 			$crud->field_type('estado_pago','dropdown', 
 			array('0' => 'No pagado', '1' => 'Pagado', '2' => 'Bonificado'));  
-			$crud->add_action('Enviar confirmación de pago', '', 'admin/confirmar_pago_festival', 'green');
+			$crud->add_action('Enviar confirmación', '', 'admin/confirmar_pago_festival', 'green');
   
-			$crud->unset_read();
+			$crud->unset_read(); 
 			$crud->unset_jquery(); 
 
 			$output = $crud->render(); 

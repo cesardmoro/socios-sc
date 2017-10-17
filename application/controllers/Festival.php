@@ -37,7 +37,7 @@ class Festival extends MY_Controller {
 						$body = $this->load->view('festival/email-paquete-'.$soc.$data['id_paquete'], array('id' => $res), true);
 				        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
 				        $this->email->to($data['email']);    
-				        $this->email->set_mailtype("html");
+				        $this->email->set_mailtype("html"); 
 				        $this->email->subject('Somos Cerveceros | Pago inscripción Festival');
 						$this->email->message($body);    
 				        $r = $this->email->send(); 

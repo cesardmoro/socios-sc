@@ -41,8 +41,8 @@ class Admin extends MY_Controller {
 	} 
 	public function festival(){
 		try{
-			$crud = new grocery_CRUD();
-
+			$crud = new grocery_CRUD(); 
+			$crud->columns('id','Codigo'); 
 			$crud->set_theme('material');
 			$crud->order_by('fecha_inscripcion');
 			$crud->set_table('sc_festival_inscripciones');

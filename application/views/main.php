@@ -50,13 +50,11 @@
    	    	<a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Capacitaciones">library_books</i>Capacitaciones</a>
    	    </li>
 
- 	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
 
 	    <li>
 	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Festival">local_activity</i>Festival</a>
 	    </li>
 
-	  <?php } ?> 
  	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
 	 	<li><div class="divider"></div></li>
 	   	<li><a class="subheader">Admin</a></li>

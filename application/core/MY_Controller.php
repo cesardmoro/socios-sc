@@ -23,9 +23,9 @@ class MY_Controller extends CI_Controller {
 		$method = $this->router->fetch_method();
  
 		
-		if(!(strpos($method, 'public') !== false)){
+		if(!(strpos($method, 'public') !== false) && $class!="festival"){
 			if(!$this->session->userdata('socio')){
-				if($class=="festival")
+				if($class=="festival") 
 					$this->session->set_flashdata('error', 'Las inscripciones solo estan disponibles para socios hasta el 17/10');
 				$this->session->set_userdata('referred_from', current_url());
 				redirect('login');

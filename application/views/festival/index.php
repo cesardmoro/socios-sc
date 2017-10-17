@@ -51,18 +51,25 @@
       <input class="form-control " id="apellido" name="apellido" required type="text">
       <label for="apellido">Apellido</label>
 	</div>
+	<?php if(isset($nro_socio)){ ?>
 	<div class="input-field col s12">
-      <input class="form-control  " id="nro_socio" ng-message="" value="<?php echo $nro_socio?> " name="nro_socio" disabled type="text">
+      <input class="form-control" id="nro_socio" ng-message="" value="<?php echo $nro_socio?> " name="nro_socio" disabled type="text">
       <label for="nro_socio">N° SOCIO</label>
 	</div>
+	<?php } else{?>
+<div class="input-field col s12">
+	<h5>Te estas inscribiendo como no socio, si sos socio <a class="text-link" href="<?php echo base_url();?>login">logueate</a>.</h5>
+	<br>
+</div>
+	<?php } ?> 
 	<div class="input-field col s12">
-	    <select name="id_paquete" required disabled>
-	      <option value="" disabled selected>Seleccione PACK</option>
+	    <select name="id_paquete" required>
+	      <option value=""  selected>Seleccione PACK</option>
 	      <option value="1" selected>PACK COMPLETO</option>
 	      <option value="2">PACK ACOMPAÑANTE</option>
 	      <option value="3">FIESTA de CIERRE</option> 
 	    </select>
-    	<label for="id_paquete">Paquete (Solo disponible el Pack completo de 2 a 17/10) </label>
+    	<label for="id_paquete">Paquete </label>
   </div>
 	<div class="input-field col s12">
       <input class="form-control" maxlength="8" id="dni" name="dni" required type="number">

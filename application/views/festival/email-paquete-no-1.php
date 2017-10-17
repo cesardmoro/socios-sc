@@ -1,6 +1,6 @@
 Confirmamos tu reserva <b>Cod. <?php echo str_pad($id, 5, 0, STR_PAD_LEFT);?></b> <br>
 <br>
-<b>PACK COMPLETO SOCIOS $ 3400<br>
+<b>PACK COMPLETO NO Socios $ 4200<br>
 <br>
 El PACK_COMPLETO incluye<br>
 <br> 
@@ -20,7 +20,7 @@ El PACK_COMPLETO incluye<br>
 (Fiesta Abierta a todo Publico para mas de 1500 personas, Muchas cervecerías, Comidas, Bandas, Premiación de Concurso y Premiación de Cervecero del Año) Traslado incluido<br>
 <br>
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>
- > MercadoPago en el siguiente Link http://mpago.la/mA1W<br>
+ > MercadoPago en el siguiente Link http://mpago.la/55Hf<br>
  > Transferencia Bancaria a la Cuenta de la Asociación.<br>
  > Efectivo Previamente combinado con un Miembro de la CD.<br> 
 

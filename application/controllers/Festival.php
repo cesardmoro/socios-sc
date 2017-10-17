@@ -13,28 +13,34 @@ class Festival extends MY_Controller {
 		$this->load->config('email');
 	}
 	public function index($id = null){ 
-		$socio = $this->session->userdata('socio');
-		if($socio && $socio->datefin >= date('Y-m-d')){   
+		$socio = $this->session->userdata('socio'); 
+		if(!$socio || ($socio && $socio->datefin >= date('Y-m-d'))){   
 			if(!$this->input->post()){
 				$output = array();
-				$data = array('nro_socio' => $socio->rowid);
+				if($socio) $data = array('nro_socio' => $socio->rowid);
+				else $data = array();
+
 				$output['output'] = $this->load->view('festival/index', $data, true);
-				$this->load->view('main',(array)$output);
+				if($socio)$this->load->view('main',(array)$output);
+				else $this->load->view('main_public',(array)$output);
+				
 			}else{
 				$data = $this->input->post();
 				if($data['nombre'] && $data['dni'] && $data['email'] && $data['telefono']){
 					$socio = $this->session->userdata('socio');
 					$id = ($socio) ? $socio->rowid : null; 
-
+					$soc = ($id == null) ? "no-" : "";
+					
 					$res = $this->Festival_Model->inscribir($id, $data);  
 					if($res){ 
-						$data['id_paquete'] = 1; 
-						$body = $this->load->view('festival/email-paquete-'.$data['id_paquete'], array('id' => $res), true);
+						 
+						$body = $this->load->view('festival/email-paquete-'.$soc.$data['id_paquete'], array('id' => $res), true);
 				        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
 				        $this->email->to($data['email']);    
 				        $this->email->set_mailtype("html");
 				        $this->email->subject('Somos Cerveceros | Pago inscripción Festival');
 						$this->email->message($body);    
+				        die($body);
 				        $r = $this->email->send(); 
 				        
 						$this->session->set_flashdata('message', 'Se ha enviado un email a su casilla con instrucciones sobre como realizar el pago');  

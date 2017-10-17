@@ -40,7 +40,6 @@ class Festival extends MY_Controller {
 				        $this->email->set_mailtype("html");
 				        $this->email->subject('Somos Cerveceros | Pago inscripción Festival');
 						$this->email->message($body);    
-				        die($body);
 				        $r = $this->email->send(); 
 				        
 						$this->session->set_flashdata('message', 'Se ha enviado un email a su casilla con instrucciones sobre como realizar el pago');  

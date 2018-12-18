@@ -104,7 +104,13 @@ class Capacitaciones extends MY_Controller {
 
 				$data = $this->input->post();
 				if($data['nombre'] && $data['dni'] && $data['email'] && $data['telefono']){
-
+					if($cap->tipo_validacion == 1){ 
+						$fes = $this->Eventos_Model->validar_festival($data['dni'], $id); 
+						if(!$fes){
+							$this->session->set_flashdata('error', 'Para inscribirse a esta capacitacion tiene q haber comprado preventa para el festival somos cerveceros y tener el pago acreditado');        
+							redirect('capacitaciones' ); 
+						}
+					}
 					$data['capacitacion'] = $cap; 
 					$data['link'] = 'capacitaciones/inscribirse_public/'.$cap->id.'/'.rtrim(base64_encode($data['nombre'].'|'.$data['dni'].'|'.$data['email'].'|'. $data['telefono']), '='); 
 					$body = $this->load->view('capacitaciones/email-capacitacion-confirmar-inscripcion', $data, true);	
@@ -123,6 +129,17 @@ class Capacitaciones extends MY_Controller {
 				}
 			}
 
+
+	}
+	public function capacitaciones_public()
+	{
+		
+			$output = array();
+			$data = array(
+				'capacitaciones' => $this->Eventos_Model->get_capacitaciones_activas($this->session->userdata('socio')->rowid)
+				);
+			$output['output'] = $this->load->view('capacitaciones/capacitaciones_public', $data, true);
+			$this->load->view('main_public',(array)$output);
 
 	}
 	public function inscribirse_public($id, $data){

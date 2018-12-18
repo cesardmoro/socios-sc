@@ -1,26 +1,26 @@
 Confirmamos tu reserva <b>Cod. <?php echo str_pad($id, 5, 0, STR_PAD_LEFT);?></b> <br>
 <br>
-<b>PACK COMPLETO NO Socios $ 4200<br>
-<br>
-El PACK_COMPLETO incluye<br>
+<b>PACK FULL NO Socios $ 5000 <br> 
 <br> 
-<b>Jueves 7/12 Bienvenida y Acreditacion en Jockey Club</b><br>
-(Acreditacion al evento - Luch - Cervezas - Reencuentro anual con cerveceros de todo el pais)<br>
+PAQUETE FULL  para no socios Somos Cerveceros hasta agotar stock:
+<br><b>
+ $5000 finales</b>
 <br>
-<b>Viernes 8/12 Conferencias en Pasaje Dardo Rocha</b><br>
-(Charlas y Conferencias, Expositores, Capacitaciones, Peliculas, Coffe Brake y Almuerzo en Jockey Club)<br>
+- Viernes 16/11 (de 20 a 23 hs): Acreditación, presentación a la prensa y recepción con servicio de food trucks y food trailer parrilla más el pinche de la Cerveza del Festival en los Galpones de la Juventud ubicados a la vera del río Paraná - Visita a bares por la zona cervecera de Rosario en el Barrio histórico de Pichincha
 <br>
-<b>Viernes 8/12 Fiesta de Camaraderia Cervecera en Cervceria Puelche, Villa Elisa</b><br>
-(Encuentro Cervecero en un campo de 6 Hectareas, Vaquillonas a la Reja, Cervezas para compartir, Choperas, Bandas, etc.) Traslado incluido<br>
+- Sábado 17/11 (de 9:30 a 13:30 hs): Ciclo de Conferencias y talleres prácticos itinerantes apuntados a diferentes temáticas cerveceras (tratamiento de levaduras, procedimiento de embotellado a media y gran escala, armado de recetas y uso de adjuntos, cervezas de guarda, etc.) que serán tratadas por expertos y reconocidos cerveceros. El objetivo es trabajar con grupos reducidos y lograr un intercambio de conocimiento directo. 
 <br>
-<b>Sabado 9/12 Conferencias en Pasaje Dardo Rocha</b><br>
-(Charlas y Conferencias, Expositores, Capacitaciones, Peliculas, Coffe Brake y Almuerzo en Jockey Club)<br>
+- Contaremos con más de 12 expositores nacionales e internacionales por jornada de conferencia en los Galpones de Juventud - Coffee break y acceso a Stands de productos para la industria cervecera y afines.
 <br>
-<b>Sabado 9/12 Fiesta del 10° FESTIVAL Somos Cerveceros en Sede Nautica Club Universitario, Punta Lara</b><br>
-(Fiesta Abierta a todo Publico para mas de 1500 personas, Muchas cervecerías, Comidas, Bandas, Premiación de Concurso y Premiación de Cervecero del Año) Traslado incluido<br>
+- Sábado 17/11 (de 14 a 18 hs): Almuerzo de Camaradería Cervecera en Galpones de Juventud -  Y como siempre ¡Gran intercambio gran de cervezas, no olvidés traer la tuya! 
+<br>
+- Domingo 18/11 (de 9:30 a 13:30 hs): Ciclo de Conferencias y talleres en Galpones de Juventud - coffee break, acceso a Stands y “almuerzo” final.
+<br>
+- Domingo 18/11 (de 20 a 1 hs): FIESTA CERVECERA en Club Sportivo América, 30 canillas, más 60 estilos de 30 cervecerías. Bandas locales en Vivo, entrega de premios Cervecero del Año.
+<br>
 <br>
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>
- > MercadoPago en el siguiente Link http://mpago.la/55Hf<br>
+ > MercadoPago en el siguiente Link https://www.mercadopago.com/mla/checkout/start?pref_id=174141320-525eb476-ff92-49fd-9218-4cd0d68a72a0<br>
  > Transferencia Bancaria a la Cuenta de la Asociación.<br>
  > Efectivo Previamente combinado con un Miembro de la CD.<br> 
 

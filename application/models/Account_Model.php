@@ -11,6 +11,15 @@ class Account_Model extends CI_Model {
 		$this->db->where('a.rowid', $id);
 		return $this->db->get()->row();
 	}
+	function getSocioByUserId($id){
+		$this->db->select("a.*, e.a1 as nick, e.a2 as dni, e.a3 as fecha_nac, e.a4 as work ");
+		$this->db->from('llx_adherent a');
+		$this->db->join('llx_adherent_extrafields e', 'on e.fk_object = a.rowid');
+		$this->db->join('sc_accounts sca', 'sca.adherent_id = a.rowid');
+ 
+		$this->db->where('sca.id', $id);
+		return $this->db->get()->row();
+	}
 	function getToken($socio, $recover = false){
 		$recCode = ($recover) ? "recoverPass" : '';   
 		$str = hash ( "sha256", rand().uniqid().$socio->rowid.$recCode);  

@@ -14,6 +14,8 @@ class Festival extends MY_Controller {
 	}
 	public function index($id = null){ 
 		$socio = $this->session->userdata('socio'); 
+		//if(!$socio) redirect('login');   
+
 		if(!$socio || ($socio && $socio->datefin >= date('Y-m-d'))){   
 			if(!$this->input->post()){
 				$output = array();
@@ -32,7 +34,7 @@ class Festival extends MY_Controller {
 					$soc = ($id == null) ? "no-" : "";
 					
 					$res = $this->Festival_Model->inscribir($id, $data);  
-					if($res){ 
+					//if($res){ 
 						 
 						$body = $this->load->view('festival/email-paquete-'.$soc.$data['id_paquete'], array('id' => $res), true);
 				        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
@@ -44,11 +46,11 @@ class Festival extends MY_Controller {
 				        
 						$this->session->set_flashdata('message', 'Se ha enviado un email a su casilla con instrucciones sobre como realizar el pago');  
 							redirect('festival'); 
-					}else{
-						$this->session->set_flashdata('error', 'Este numero de socio ya se encuentra inscripto');      
-						redirect('festival');   
+					//}else{
+						//$this->session->set_flashdata('error', 'Este numero de socio ya se encuentra inscripto');      
+						//redirect('festival');   
 
-					}
+					//}
 				
 				}else{
 					$this->session->set_flashdata('error', 'Debe completar todos los campos');        
@@ -57,7 +59,7 @@ class Festival extends MY_Controller {
 			}
 		}
 		else{ 
-			$this->session->set_flashdata('error', 'No se puede inscribir a la capacitación porque tiene la couta vencida');  
+			$this->session->set_flashdata('error', 'No se puede inscribir a al festival porque tiene la couta vencida');  
 			redirect('dashboard') ;
 		} 
 	} 
@@ -71,6 +73,29 @@ class Festival extends MY_Controller {
 		$this->email->message($body);     
         $r = $this->email->send();  
 	}
+	public function end(){
+	/*res = $this->Festival_Model->get_impagos();
+		foreach($res as $re){
+			echo "mandar mail a ".$re->email;
+			$body = "Estimado, Socio.<br><br>
+
+					Nos contactamos para ponerte al tanto de que el lunes 08/10 es el ultimo día en el cual la reserva del XI Festival Somos cerveceros Rosario 2018 sera valida.<br>
+
+					SI aun no realizaste el pago, tenes hasta esa fecha o tu reserva sera descargada. <br>
+
+					Si ya realizaste el pago podes desestimar este mensaje.<br><br>
+
+					Saludos. ";
+
+				        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+				        $this->email->to('cesar.d.moro@gmail.com');    
+				        $this->email->set_mailtype("html"); 
+				        $this->email->subject('Somos Cerveceros | Reserva Festival - Importante.');
+						$this->email->message($body);    
+			 $r = $this->email->send(); 
+			 die();
+		}*/
+	} 
 }
 
 /* End of file Eventos.php */

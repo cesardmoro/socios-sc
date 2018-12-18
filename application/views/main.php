@@ -37,27 +37,44 @@
 </head>
 <body>
 	<ul id="nav-mobile" class="side-nav">
-    <li><div class="userView">
+    <li>
+    	<div class="userView">
 		   <div class="container center-align">
-			  <img src="<?php echo base_url()?>assets/img/logo.svg" width="1">
-			  </div>
-      <a ><span class="name"><?php echo $this->session->userdata('socio')->firstname." ". $this->session->userdata('socio')->lastname?></span></a>
-      <a ><span class=" email"><?php echo $this->session->userdata('socio')->email?></span></a>
-    </div></li>
- 	<li><div class="divider"></div></li>
-   	<li><a class="subheader">Dashbord</a></li>
+			  <img src="<?php echo base_url()?>/assets/img/logo.svg" width="90">
+		  	</div>
+      		<a><span class="name"><?php echo $this->session->userdata('socio')->firstname." ". $this->session->userdata('socio')->lastname?></span></a>
+      		<a><span class=" email"><?php echo $this->session->userdata('socio')->email?></span></a>
+    	</div>
+    	 	<li><div class="divider"></div></li>
+
+     		<li>
+   	    		<a>Couta
+   	    		
+   	    			<?php echo ($this->session->userdata('socio')->datefin >= date('Y-m-d')) ? "Al día hasta: ".date('d/m/Y',strtotime($this->session->userdata('socio')->datefin))  : "Vencida"; ?></a> 
+   	    	</li>
+   	    	    	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
+
+	     	 <li>
+   	    	<a href="<?php echo site_url('perfil/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Perfil">account_circle</i>Perfil</a>
+   	    </li>
+  		<?php } ?>
+</li>
    	    <li>
    	    	<a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Capacitaciones">library_books</i>Capacitaciones</a>
    	    </li>
-
-
+ 
 	    <li>
 	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Festival">local_activity</i>Festival</a>
 	    </li>
+	     	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
+
+
+	<?php } ?>
 
  	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
 	 	<li><div class="divider"></div></li>
 	   	<li><a class="subheader">Admin</a></li>
+   	    <li><a href="<?php echo site_url('admin/usuarios')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Usuarios">account_circle</i>Administrar Usuarios</a></li>
    	    <li><a href="<?php echo site_url('admin/capacitaciones')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Capacitaciones">library_books</i>Administrar Capacitaciones</a></li>
    	    <li><a href="<?php echo site_url('admin/festival')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Festival">local_activity</i>Administrar Festival</a></li>
     

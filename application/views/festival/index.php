@@ -1,45 +1,68 @@
 <div class="row">
     <h2>PAQUETES</h2> 
-    <div class="col s4">
-    	<div class="card">
+    <div class="row">
+	<!--div class="col s4">
+    	<div class="card" >
             <div class="card-content">
-				<span class="card-title">PACK COMPLETO </span> 
-				<p> Incluye, Bienvenida, Acreditacion, Conferencias, Traslados, Fiesta Camaraderia Cervecera, Fiesta 10° Festival Somos Cerveceros
+				<span class="card-title">PAQUETE FULL PREVENTA: </span> 
+				<p> Incluye Bienvenida, Acreditacion, Conferencias y talleres prácticos, Almuerzo de Camaradería,Tour cervecero, Fiesta 11° Festival Somos Cerveceros (Incluye consumisión).
 				        
-				 <p>
+				 </p><br><br><br>
 			</div>
 			 <div class="card-action">
-          		Socios $ 3400.   
-                <span class="right">No Socios $ 4200.</span>
+          		Socios $ 3000.
+
             </div>
 		</div>
-	</div>
-	<div class="col s4">
-    	<div class="card">
+	</div-->
+    <div class="col s4">
+    	<div class="card" >
             <div class="card-content">
-				<span class="card-title">PACK ACOMPAÑANTE </span> 
-				<p> Incluye, Bienvenida, Acreditacion, Traslados, Fiesta Camaraderia Cervecera, Fiesta 10° Festival Somos Cerveceros
-				 <p>
+				<span class="card-title">PAQUETE FULL VENTA: </span> 
+				<p> Incluye Bienvenida, Acreditacion, Conferencias y talleres prácticos, Almuerzo de Camaradería, Fiesta 11° Festival Somos Cerveceros (Incluye consumisión).
+				        
+				 </p><br><br><br>
 			</div>
 			 <div class="card-action">
-          		Socios $ 1600.   
-                <span class="right">No Socios $ 2000.</span>
+          		Socios $ 4000.   
+                <span class="right">No Socios $ 5000.</span>
+
             </div>
 		</div>
 	</div>
-	<div class="col s4">
-    	<div class="card">
+	  <div class="col s4">	
+    	<div class="card" >
+            <div class="card-content">
+				<span class="card-title">PAQUETE CAMARADERIA: </span> 
+				<p> Incluye Bienvenida, Acreditacion, Almuerzo de Camaradería, Fiesta 11° Festival Somos Cerveceros (Incluye consumisión)
+				        
+				 </p><br><br><br>
+			</div>
+			 <div class="card-action">
+          		Socios $ 2000.   
+                <span class="right">No Socios  $ 2500.</span>
+
+            </div>
+		</div>
+	</div> 
+	  <div class="col s4">	
+    	<div class="card" >
             <div class="card-content">
 				<span class="card-title">FIESTA de CIERRE</span> 
-				<p> Fiesta 10° Festival Somos Cerveceros (incluye consumisión)<br><br>
-				 <p>
+				<p> Fiesta 11° Festival Somos Cerveceros (Incluye consumisión)
+				 </p><br><br><br><br>
 			</div>
 			 <div class="card-action">
-          		 General $ 300.
+          		 General $ 200. 
             </div>
 		</div>
-	</div>
+	  </div>
+	  
+		</div>
+ 
 </div>
+
+<h6>*Los cupos para los talleres seársomno definidos por numero de orden de compra, teniendo prioridad los que compraron PAQUETE FULL PREVENTA!!  </h6> 
 <h5>Formulario inscripción</h5>
 <h6>Validez de Reserva 7 días para realizar el pago</h6> 
 <form action="" method="post">
@@ -66,10 +89,10 @@
 	    <select name="id_paquete" required>
 	      <option value=""  selected>Seleccione PACK</option>
 	      <option value="1" selected>PACK COMPLETO</option>
-	      <option value="2">PACK ACOMPAÑANTE</option>
+	      <option value="2">PACK CAMARADERIA</option>
 	      <option value="3">FIESTA de CIERRE</option> 
-	    </select>
-    	<label for="id_paquete">Paquete </label>
+	    </select> 
+    	<label for="id_paquete">Paquete </label> 
   </div>
 	<div class="input-field col s12">
       <input class="form-control" maxlength="8" id="dni" name="dni" required type="number">

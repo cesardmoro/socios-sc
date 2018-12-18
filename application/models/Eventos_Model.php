@@ -7,10 +7,10 @@ class Eventos_Model extends CI_Model {
 		
 		$this->db->select('e.*, ei.id_socio as inscripcion');
 		$this->db->select('(cupos-(select count(1) from sc_eventos_inscripciones where id_evento = e.id)-reservados) as vacantes');
-
 		$this->db->from('sc_eventos e');
 		$this->db->join('sc_eventos_inscripciones ei', "ei.id_evento = e.id and ei.id_socio = '".$id_socio."'",  'left');
 		$this->db->where('e.fecha >', date('Y-m-d')); 
+		$this->db->where('e.oculto', 0);
 		$this->db->order_by('fecha');
  		$res = $this->db->get()->result();
 		return $res;
@@ -29,6 +29,7 @@ class Eventos_Model extends CI_Model {
 
 		return $this->db->get()->row();
 	}	
+
 	public function get_cupo($id){
 		$this->db->select('(count(ei.id)-cupo) as cupo')->from('sc_eventos e');
 		$this->db->join('sc_eventos_inscripciones ei', 'e.id = ei.id_evento', 'left');
@@ -40,6 +41,32 @@ class Eventos_Model extends CI_Model {
 
 		$event = $this->db->select('*')->where('id', $id_evento)->where('fecha >', date('Y-m-d'))->get('sc_eventos')->row();   
 		if($event){
+			if($event->tipo_validacion == 1){ //Validación festival
+				$fes = $this->db->select('id_paquete')->where('id_socio', $id_socio)->where('estado_pago >=', 1)->where_in('id_paquete', array(0,1,4))->order_by('id_paquete', 'desc')->get('sc_festival_inscripciones')->row();  
+				if(!$fes){
+					$this->session->set_flashdata('error', 'Para inscribirse a esta capacitacion tiene q haber comprado pack preventa o packfull para el festival y/o tour somos cerveceros 2018 y tener el pago acreditado');        
+					redirect('capacitaciones' ); 
+				}else{
+					$group5 = array(41,42,43); 
+					if($fes->id_paquete == 4){
+						if(!in_array($id_evento, $group5)){  
+							$this->session->set_flashdata('error', 'Para inscribirse a esta capacitacion tiene q haber comprado pack preventa o packfull para el festival somos cerveceros 2018 y tener el pago acreditado');
+							redirect('capacitaciones' );         
+						}
+					
+					}
+					if($fes->id_paquete == 1){
+						if(in_array($id_evento, $group5)){  
+							$this->session->set_flashdata('error', 'Para inscribirse al tour tiene q comprar el pack Tour el tour solo esta incluido en la preventa');
+							redirect('capacitaciones' );         
+						}
+					
+					}
+				}
+				$this->validar_horario_duplicado_festival($id_evento, $id_socio, false);
+			}
+	
+
 			$this->db->select('*')->where('id_evento', $id_evento);
 			$row = $this->db->where('id_socio', $id_socio)->get('sc_eventos_inscripciones')->row();
 
@@ -55,6 +82,36 @@ class Eventos_Model extends CI_Model {
 				redirect('capacitaciones' );
 		}
 	}
+	private function validar_horario_duplicado_festival($id_cap, $id, $dni){
+		$group = null;
+		$group1 = array (30, 31, 32);
+		$group2 = array(33,34, 29); 
+		$group3 = array(35, 36, 37);
+		$group4 = array(38,39,40);
+		$group5 = array(41,42,43); 
+		if(in_array($id_cap, $group1)) $group = $group1;		
+		if(in_array($id_cap, $group2)) $group = $group2;		
+		if(in_array($id_cap, $group3)) $group = $group3;		
+		if(in_array($id_cap, $group4)) $group = $group4;		
+		if(in_array($id_cap, $group5)) $group = $group5;		
+
+
+		if($id){  
+			$res = $this->db->select('id')->where('id_socio', $id)->where_in('id_evento', $group)->get('sc_eventos_inscripciones')->row();
+			if($res){ 
+				$this->session->set_flashdata('error', 'Tiene una capacitacion que se superpone con el horario, no se puede inscribir');        
+				redirect('capacitaciones' );
+			}
+		}else{ 
+			$res =$this->db->select('id')->where('dni', $dni)->where_in('id_evento', $group)->get('sc_eventos_inscripciones')->row();
+			if($res){ 
+				$this->session->set_flashdata('error', 'Tiene una capacitacion que se superpone con el horario, no se puede inscribir');         
+				redirect('capacitaciones' );
+			}
+		}
+		return false;
+
+	}
 	public function inscribir_no_socio($id_evento, $data){
 		 $inscripcion = $this->db->select('id')->from('sc_eventos_inscripciones')
 		 ->where('nombre', $data['nombre'])
@@ -62,7 +119,33 @@ class Eventos_Model extends CI_Model {
 		->where('telefono', $data['telefono'])
 		->where('dni', $data['dni'])
 		->where('id_evento', $id_evento)->get()->row();  
+		 
+		$event = $this->db->select('*')->where('id', $id_evento)->where('fecha >', date('Y-m-d'))->get('sc_eventos')->row();   
 
+		if($event->tipo_validacion == 1){ //Validación festival 
+			$fes = $this->db->select('id_paquete')->where('dni', $data['dni'])->where('estado_pago >=', 1)->where_in('id_paquete', array(0, 1, 4))->order_by('id_paquete', 'desc')->get('sc_festival_inscripciones')->row();  
+			if(!$fes){
+				$this->session->set_flashdata('error', 'Para inscribirse a esta capacitacion tiene q haber comprado preventa para el festival somos cerveceros y tener el pago acreditado');        
+				redirect('capacitaciones' ); 
+			}
+				$group5 = array(41,42,43); 
+				if($fes->id_paquete == 4){
+					if(!in_array($id_evento, $group5)){  
+						$this->session->set_flashdata('error', 'Para inscribirse a esta capacitacion tiene q haber comprado pack preventa o packfull para el festival somos cerveceros 2018 y tener el pago acreditado');
+						redirect('capacitaciones' );         
+					}
+
+				}
+				if($fes->id_paquete == 1){
+					if(in_array($id_evento, $group5)){  
+						$this->session->set_flashdata('error', 'Para inscribirse al tour tiene q comprar el pack Tour el tour solo esta incluido en la preventa');
+						redirect('capacitaciones' );         
+					}
+
+				}
+
+				$this->validar_horario_duplicado_festival($id_evento, false , $data['dni']);
+		}	
 		if(!$inscripcion){
 			$event = $this->db->select('*')->where('id', $id_evento)->where('fecha >', date('Y-m-d'))->get('sc_eventos')->row();   
 			if($event){
@@ -82,6 +165,33 @@ class Eventos_Model extends CI_Model {
 			redirect('capacitaciones/capacitacion_public/'.$id_evento );
 		}
 	}
+
+	public function validar_festival($dni, $id_evento){
+
+			$fes = $this->db->select('id_paquete')->where('dni', $dni)->where('estado_pago >=', 1)->where_in('id_paquete', array(0, 1, 4))->order_by('id_paquete', 'desc')->get('sc_festival_inscripciones')->row();  
+			if(!$fes){  	
+				return false; 
+			}
+			$group5 = array(41,42,43); 
+			if($fes->id_paquete == 4){
+				if(!in_array($id_evento, $group5)){  
+					$this->session->set_flashdata('error', 'Para inscribirse a esta capacitacion tiene q haber comprado pack preventa o packfull para el festival somos cerveceros 2018 y tener el pago acreditado');
+					redirect('capacitaciones' );         
+				}
+
+			}
+			if($fes->id_paquete == 1){
+				if(in_array($id_evento, $group5)){  
+					$this->session->set_flashdata('error', 'Para inscribirse al tour tiene q comprar el pack Tour el tour solo esta incluido en la preventa');
+					redirect('capacitaciones' );         
+				}
+
+			}
+
+			return true; 
+			
+	}
+
 	public function desinscribirse_no_socio($id_evento, $data){
 
 			$inscripcion = $this->db->select('id')

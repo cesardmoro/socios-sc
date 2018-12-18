@@ -11,11 +11,14 @@ class Socio extends CI_Controller {
 	}
 	public function cuota($dni = "", $numero = "")
 	{
-		if($this->input->post("numero")){
-			$socio = $this->Account_Model->getSocio($this->input->post("numero"));
+		
+		if($this->input->post("numero") && $this->input->post("dni")) redirect("cuota/".$this->input->post("dni") ."/".$this->input->post("numero")); 
+	
+		if((!empty($numero) && !empty($dni))){ 
+			$socio = $this->Account_Model->getSocio($numero);
 			if($socio){
 
-				if($socio->dni == $this->input->post('dni')){
+				if($socio->dni == $dni){
 					if($socio->datefin >= date('Y-m-d')){   
 
 						$this->session->set_flashdata('message', 'El socio '.$socio->firstname.' '.$socio->lastname.' tiene la cuota al dia.');   	
@@ -28,11 +31,23 @@ class Socio extends CI_Controller {
 			}else{
 				$this->session->set_flashdata('error', 'El numero de socio no existe.');       
 			}
-			redirect("cuota/".$this->input->post('dni')."/".$this->input->post('numero'));
-		} 
+			//redirect("cuota/".$dni."/".$numero); 
+		}
+			
 
 		$view = $this->load->view('socio/cuota_al_dia', array('dni' => $dni, 'numero' => $numero), true);
 		$this->load->view('base', array('view' => $view)); 
+	}
+	public function qr($dni = "", $numero=""){
+		if(empty($dni) || empty($numero)){
+			die('Complete dni y numero');
+		}
+
+
+		$this->load->library('ciqrcode');
+		header("Content-Type: image/png");
+		$params['data'] = 'http://somoscerveceros.com/socios/couta/'.$dni.''.$numero; 
+		$this->ciqrcode->generate($params);
 	}
 	public function manual(){
 		$view = $this->load->view('manual', array(), true);

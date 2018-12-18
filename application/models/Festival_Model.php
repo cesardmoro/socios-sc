@@ -12,12 +12,21 @@ class Festival_Model extends CI_Model {
 			$data['fecha_inscripcion'] = date('Y-m-d H:i:s');
 	 		$this->db->insert('sc_festival_inscripciones', $data); 
 	 		return $this->db->insert_id();
- 		}else return false;
-
+ 		}else return false; 
 	}
+
 	public function get_inscripcion($id){ 
 		$row = $this->db->select('*')->where('id', $id)->get('sc_festival_inscripciones')->row();
 		return $row;
+	}
+
+	public function set_confirmacion($id){ 
+		$row = $this->db->where('id', $id)->update('sc_festival_inscripciones', array('enviada_confirmacion' => 1) ); 
+		return $row;
+	}
+	public function get_impagos(){
+
+		return $this->db->select('*')->where('estado_pago', null)->get('sc_festival_inscripciones')->result();
 	}
 
 }

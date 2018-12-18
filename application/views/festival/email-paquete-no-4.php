@@ -1,18 +1,15 @@
 Confirmamos tu reserva <b>Cod. <?php echo str_pad($id, 5, 0, STR_PAD_LEFT);?></b> <br>
 <br>
-<b>Fiesta de cierre $ 200</b><br>
+<b>TOUR CERVECERO $ 200</b><br>
 <br> 
-<br><b> 
- $ 200 finales</b>
-<br>
-- Domingo 18/11 (de 20 a 1 hs): FIESTA CERVECERA en Club Sportivo América, 30 canillas, más 60 estilos de 30 cervecerías. Bandas locales en Vivo, entrega de premios Cervecero del Año.
-<br>
-<br>
-   
+TOUR CERVECERO
+<br><b>
+ $200 finales</b>
+  
 
 
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>
- > MercadoPago en el siguiente Link https://www.mercadopago.com/mla/checkout/start?pref_id=174141320-1f2473ce-db79-407a-9866-d9e0ae149685<br>
+ > MercadoPago en el siguiente Link https://www.mercadopago.com/mla/checkout/start?pref_id=174141320-574a9077-94f5-4feb-a931-8ec4b9bcffd4<br>
  > Transferencia Bancaria a la Cuenta de la Asociación.<br>
 
 En caso de realizar una transferencia menciona tu código de Reserva que te generó el sistema al enviarnos el comprobante.<br>

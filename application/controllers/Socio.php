@@ -46,7 +46,7 @@ class Socio extends CI_Controller {
 
 		$this->load->library('ciqrcode');
 		header("Content-Type: image/png");
-		$params['data'] = 'http://somoscerveceros.com/socios/couta/'.$dni.'/'.$numero; 
+		$params['data'] = 'http://somoscerveceros.com/socios/cuota/'.$dni.'/'.$numero; 
 		$this->ciqrcode->generate($params);
 	}
 	public function qr_gen(){
@@ -57,7 +57,7 @@ class Socio extends CI_Controller {
 	   	foreach($socios as $socio){
 			$dni = $socio->dni;	
 			$numero = $socio->numero;
-			$params['data'] = 'http://somoscerveceros.com/socios/couta/'.$dni.'/'.$numero; 
+			$params['data'] = 'http://somoscerveceros.com/socios/cuota/'.$dni.'/'.$numero; 
 			$params['savename'] = $tempDir.$socio->numero.'.png'; 
 	    	echo $this->ciqrcode->generate($params);
  		}

@@ -1,7 +1,7 @@
 (function($){
 $(document).ready(function(){
 	$('.side-nav').addClass('collapsed');
-
+	
 	$('.button-collapse').sideNav({
 
 		onOpen: function(el) {$('.side-nav').removeClass('collapsed');

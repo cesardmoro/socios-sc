@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['cuota'] = "socio/cuota";
 $route['couta'] = "socio/cuota"; 
+$route['perfil'] = "socio/perfil"; 
 $route['cuota/(:num)/(:num)'] = "socio/cuota/$1/$2";
 $route['couta/(:num)/(:num)'] = "socio/cuota/$1/$2";
 $route['manual'] = "socio/manual";

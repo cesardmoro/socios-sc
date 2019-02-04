@@ -24,13 +24,9 @@
 	} ?> 
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script src="<?php echo base_url()?>assets/js/main.js"></script>
-
-
-
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet"> 
@@ -118,9 +114,12 @@
     </div>
     </main>
     	<footer>
-		
-        <div class="container">© 2008-2017 Somos Cerveceros<a class="right" href="https://github.com/cesardmoro">Desarrollado por Cesar Moro - Socio 977</a> </div>  
+       		<div class="container">© 2008-2017 Somos Cerveceros<a class="right" href="https://github.com/cesardmoro">Desarrollado por Cesar Moro - Socio 977</a></div>  
         </footer>
-
+		<script  type="text/javascript" charset="utf-8" async defer>
+			$(document).ready(function() {
+		   		$('select').material_select();
+		 	});
+		</script>
 </body>
 </html>

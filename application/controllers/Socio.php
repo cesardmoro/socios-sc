@@ -11,7 +11,7 @@ class Socio extends CI_Controller {
 	}
 	public function cuota($dni = "", $numero = "")
 	{
-		
+		 
 		if($this->input->post("numero") && $this->input->post("dni")) redirect("cuota/".$this->input->post("dni") ."/".$this->input->post("numero")); 
 	
 		if((!empty($numero) && !empty($dni))){ 
@@ -46,13 +46,53 @@ class Socio extends CI_Controller {
 
 		$this->load->library('ciqrcode');
 		header("Content-Type: image/png");
-		$params['data'] = 'http://somoscerveceros.com/socios/couta/'.$dni.''.$numero; 
+		$params['data'] = 'http://somoscerveceros.com/socios/couta/'.$dni.'/'.$numero; 
 		$this->ciqrcode->generate($params);
+	}
+	public function qr_gen(){
+	    $tempDir = FCPATH."qr/";  
+	   	$this->load->library('ciqrcode');
+	    
+	   	$socios = $this->db->select('l.rowid as numero, le.a2 as dni')->from('llx_adherent l')->join('llx_adherent_extrafields le', 'le.fK_object = l.rowid')->get()->result(); 
+	   	foreach($socios as $socio){
+			$dni = $socio->dni;	
+			$numero = $socio->numero;
+			$params['data'] = 'http://somoscerveceros.com/socios/couta/'.$dni.'/'.$numero; 
+			$params['savename'] = $tempDir.$socio->numero.'.png'; 
+	    	echo $this->ciqrcode->generate($params);
+ 		}
+
+
+	
+		header("Content-Type: image/png");
+
 	}
 	public function manual(){
 		$view = $this->load->view('manual', array(), true);
 		$this->load->view('base', array('view' => $view)); 
 	
+	} 
+	public function perfil(){
+		if(!$this->session->userdata('socio')) redirect('login');
+		//si posteo el socio
+		if($this->input->post()){
+			$edit = [];
+			$edit['zip'] = $this->input->post('cp');
+			$edit['address'] = $this->input->post('direccion');
+			$edit['town'] = $this->input->post('ciudad');
+			$edit['state_id'] = $this->input->post('provincia'); 
+			$idSocio = $this->session->userdata('socio')->rowid;
+			$this->Account_Model->editPerfil($edit, $idSocio);
+
+		}
+		$socio = $this->Account_Model->getSocio($this->session->userdata('socio')->rowid);
+		$this->session->set_userdata('socio', $socio);
+		$view = $this->load->view('socio/perfil', array('socio' => $socio, 'estados' => $this->Account_Model->getStates()), true);
+		$this->load->view('main', array('output' => $view));  
+
+
+
+
 	}
 
 }

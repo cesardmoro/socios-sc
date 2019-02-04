@@ -24,7 +24,7 @@ class Login extends CI_Controller {
 			else{ 
 				$this->session->set_flashdata('error', 'El Usuario no existe o la contraseña es incorrecta');        	
 			}
-		}
+		}  
 		$view = $this->load->view('login/login', null, true);
 		$this->load->view('base', array('view' => $view));
 	}

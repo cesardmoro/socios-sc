@@ -44,7 +44,7 @@
     	 	<li><div class="divider"></div></li>
 
      		<li>
-   	    		<a>Couta
+   	    		<a>Cuota
    	    		
    	    			<?php echo ($this->session->userdata('socio')->datefin >= date('Y-m-d')) ? "Al día hasta: ".date('d/m/Y',strtotime($this->session->userdata('socio')->datefin))  : "Vencida"; ?></a> 
    	    	</li>

@@ -9,7 +9,7 @@
       <input class="form-control " id="email" name="email" required type="text">
       <label for="email">Email</label>
 	</div>
-    <div class="input-field col s12">
+    <div class="input-field col s12"> 
       <i class="material-icons prefix">lock</i>
       <input class="form-control " id="password" name="password" required type="password">
       <label for="password">Clave</label>

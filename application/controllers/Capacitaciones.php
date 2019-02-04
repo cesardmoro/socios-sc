@@ -39,7 +39,7 @@ class Capacitaciones extends MY_Controller {
 				}
 			}
 			else{ 
-				$this->session->set_flashdata('error', 'No se puede inscribir a la capacitación porque tiene la couta vencida');      
+				$this->session->set_flashdata('error', 'No se puede inscribir a la capacitación porque tiene la cuota vencida');      
 			}
 			redirect('Capacitaciones' );
 			

@@ -5,3 +5,7 @@ application/config/*
 .git-ftp-ignore
 .git-ftp-include
 .gitlab-ci.yml 
+mail
+.trash
+.gnome2
+.autorespondfilter

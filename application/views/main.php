@@ -48,12 +48,12 @@
    	    		
    	    			<?php echo ($this->session->userdata('socio')->datefin >= date('Y-m-d')) ? "Al día hasta: ".date('d/m/Y',strtotime($this->session->userdata('socio')->datefin))  : "Vencida"; ?></a> 
    	    	</li>
-   	    	    	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
+   	    	    
 
 	     	 <li>
    	    	<a href="<?php echo site_url('perfil/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Perfil">account_circle</i>Perfil</a>
    	    </li>
-  		<?php } ?>
+  		
 </li>
    	    <li>
    	    	<a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Capacitaciones">library_books</i>Capacitaciones</a>
@@ -62,10 +62,9 @@
 	    <li>
 	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Festival">local_activity</i>Festival</a>
 	    </li>
-	     	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
 
 
-	<?php } ?>
+
 
  	<?php if($this->session->userdata('role') == "ADMIN"){ ?>
 	 	<li><div class="divider"></div></li>

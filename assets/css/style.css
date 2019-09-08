@@ -1,0 +1,98 @@
+main, footer{
+	padding-left:30px;
+}
+main.public, footer.public{
+  padding-left:0;
+}
+main .container {
+	width: 90%;
+	margin: 0 5%;
+	padding: 0;
+}
+footer .container {
+	width: 90%;
+	margin: 0 5%;
+	padding: 0;
+}
+footer {
+    background: #fafafa;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+}
+#wrapper {
+	padding-top: 50px;
+}
+.side-nav li>a {
+
+    font-size: 12px;
+ 
+}
+
+tr.vencida {
+    background: #fbcdcd;
+}
+.btn, .btn-large{
+	margin-top:5px;  
+} 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto; 
+  }
+
+a.text-link{
+  text-transform: none!important;
+  margin:0!important;
+}
+@media only screen and (max-width: 992px){
+header, main, footer {
+    padding-left: 45px;
+}
+
+}
+
+
+.chosen-container {
+    min-width: 250px;
+}
+
+.chosen-container-single .chosen-search input[type="text"] {
+    box-sizing: border-box;
+}
+ul#nav-mobile.collapsed {
+    transform: translateX(-85%)!important;
+}
+
+.button-collapse .material-icons {
+    z-index: 999;
+    position: fixed;
+    padding-left: 10px; 
+    padding-top: 10px;
+}
+ul#nav-mobile.collapsed .material-icons {
+    position: absolute; 
+    right: -20px;
+}
+.material-tooltip.hidden .backdrop, .material-tooltip.hidden span {
+    display: none;
+}
+.btn, .btn-large{
+    white-space:nowrap;
+} 
+th.ui-state-default {
+    border: none;
+    white-space: nowrap;
+}
+.side-nav .user-view, .side-nav .userView {
+    position: relative;
+    padding: 15px 35px 0;
+    margin-bottom: 8px;
+}
+ul#nav-mobile {
+    overflow: hidden;
+}

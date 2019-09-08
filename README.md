@@ -29,6 +29,7 @@ MySQL 5.5+
 Nota:
   se recomindan agregar valores a la tabla llx_adherent donde estarian registrados los socios.
   
+
  
 
 # Contacto:
@@ -66,4 +67,3 @@ Contacto: cesar.d.moro@gmail.com
 	* Ayuda al socio
 	* Pago de couta
 
-	

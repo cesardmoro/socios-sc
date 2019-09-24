@@ -58,6 +58,7 @@ $route['perfil'] = "socio/perfil";
 $route['cuota/(:num)/(:num)'] = "socio/cuota/$1/$2";
 $route['couta/(:num)/(:num)'] = "socio/cuota/$1/$2";
 $route['cuota_carnet/(:any)'] = "socio/cuota_carnet/$1";
+$route['cuota_qr/(:num)/(:num)'] = "socio/cuota_qr/$1/$2";
 $route['manual'] = "socio/manual";
 $route['festival/(:num)'] = "festival/index";    
 $route['endpublic'] = "festival/end";    

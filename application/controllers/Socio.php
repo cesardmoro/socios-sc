@@ -43,15 +43,56 @@ class Socio extends CI_Controller {
 		$r = [];
 		$socio = $this->Account_Model->getSocioCarnet($carnetId);
 		if($socio){
+			$r['socio']['lastname'] = $socio->lastname;
+			$r['socio']['firstname'] = $socio->firstname;
+			$r['socio']['dni'] = $socio->dni;
+			$r['socio']['datefin'] = $socio->datefin;
 			if($socio->datefin >= date('Y-m-d')){   
-				$r['response'] =  'El socio '.$socio->firstname.' '.$socio->lastname.' tiene la cuota al dia.';   	
+				$r['cuota'] = true;
+				$r['status'] =  'Al día';   	
 			}else{
-				$r['response'] = 'La cuota del socio esta impaga.';    
+				$r['cuota'] = false;
+				$r['status'] = 'Vencida';    
 			}	
 		}else{
-			$r['response'] = "El numero de socio no existe.";       
+			$r['cuota'] = false;
+			$r['status'] = "El numero de socio no existe.";       
 		}
-		echo json_encode($r);
+
+
+
+		echo json_encode(array('response' => $r));
+		
+	}
+	public function cuota_qr($dni, $numero){
+		header('Content-Type: application/json');
+		$r = [];
+		$socio = $this->Account_Model->getSocio($numero);
+		if($socio){
+			if($socio->dni == $dni){
+				$r['socio']['lastname'] = $socio->lastname;
+				$r['socio']['firstname'] = $socio->firstname;
+				$r['socio']['dni'] = $socio->dni;
+				$r['socio']['datefin'] = $socio->datefin;
+				if($socio->datefin >= date('Y-m-d')){   
+					$r['cuota'] = true;
+					$r['status'] =  'Al día';   	
+				}else{
+					$r['cuota'] = false;
+					$r['status'] = 'Vencida';    
+				}	
+			}else{
+				$r['cuota'] = false;
+				$r['status'] = "El numero de dni no concide con el socio.";   
+			}
+		}else{
+			$r['cuota'] = false;
+			$r['status'] = "El numero de socio no existe.";       
+		}
+
+
+
+		echo json_encode(array('response' => $r));
 		
 	}
 	public function qr($dni = "", $numero=""){

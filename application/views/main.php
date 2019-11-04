@@ -61,7 +61,11 @@
 	    <li>
 	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Festival">local_activity</i>Festival</a>
 	    </li>
-
+   	    </li>
+	    <li>
+	      	<a href="<?php echo site_url('concursos/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Devoluciones concursos">battery_full</i>Devoluciones concursos</a>
+	    </li>
+	
 
 
 
@@ -71,6 +75,7 @@
    	    <li><a href="<?php echo site_url('admin/usuarios')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Usuarios">account_circle</i>Administrar Usuarios</a></li>
    	    <li><a href="<?php echo site_url('admin/capacitaciones')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Capacitaciones">library_books</i>Administrar Capacitaciones</a></li>
    	    <li><a href="<?php echo site_url('admin/festival')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Festival">local_activity</i>Administrar Festival</a></li>
+   	    <li><a href="<?php echo site_url('admin/concursos')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="50" data-tooltip="Administrar Concursos">battery_full</i>Administrar Concursos</a></li>
     
 	<?php } ?>
 	<li><div class="divider"></div></li>

@@ -96,3 +96,17 @@ th.ui-state-default {
 ul#nav-mobile {
     overflow: hidden;
 }
+.side-nav li>a {
+
+    height: 35px;
+	width:100%;
+    float: left;
+}
+.side-nav li>a>i, .side-nav li>a>[class^="mdi-"], .side-nav li>a li>a>[class*="mdi-"], .side-nav li>a>i.material-icons {
+    height: 35px;
+    line-height: 35px;
+}
+td.confirmed {
+    background: #b3dab3;
+    transition: 0.3s;
+}

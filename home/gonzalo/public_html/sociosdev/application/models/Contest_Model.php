@@ -49,27 +49,30 @@ class Contest_Model extends CI_Model {
 				'content' => http_build_query($data)
 			)
 		);
-		$this->db->where('id_contest', $contest->id)->delete('sc_contest_entrants'); 
 		$context  = stream_context_create($options);
 		$result = file_get_contents($url, false, $context);
-		$this->load->library('Dom_parser');
-		$dom = new simple_html_dom();
-		$dom->load($result); 
-		$entrats = [];
-		foreach( $dom->find('tr') as $node)
-		{	 
-			$tds = $node->find('td');
-			if(count($tds)){
+		$this->db->where('id_contest', $contest->id)->delete('sc_contest_entrants'); 
+		var_export($result);
+		$trs = explode('<tr>', $result); 
+		var_export($trs);
+		die('a');
+		$entrants = [];
+		foreach( $dom->getElementsByTagName('tr') as $node)
+		{	
+			$tds = $node->getElementsByTagName('td');
+			if(count($tds) > 3){
 				$reg = [];
 				$reg['id_contest'] = $contest->id;
-				$reg['name'] = $tds[0]->innertext;
-				$reg['email'] = $tds[1]->innertext	;
-				$reg['phone'] = $tds[2]->innertext;
-				$reg['adress'] = $tds[4]->innertext;	
+				$reg['name'] = $tds[0]->nodeValue;
+				$reg['email'] = $tds[1]->nodeValue;
+				$reg['phone'] = $tds[2]->nodeValue;
+				$reg['adress'] = $tds[4]->nodeValue;	
 				$entrants[] = $reg;
 			}
 		}
-		$this->db->insert_batch('sc_contest_entrants', $entrants); 
+		if(!empty($entrants)){
+			$this->db->insert_batch('sc_contest_entrants', $entrants); 
+		}
 	}
 	public function sync_entries($contest){
 
@@ -98,21 +101,24 @@ class Contest_Model extends CI_Model {
 		$result = file_get_contents($url, false, $context);
 
 		$this->db->where('id_contest', $contest->id)->delete('sc_contest_entries'); 
-		$this->load->library('Dom_parser');
-		$dom = new simple_html_dom();
-		$dom->load($result); 
+		$dom = new DOMDocument;
+		$libxml_previous_state = libxml_use_internal_errors(true);
+
+		$dom->loadHTML($result);
+		libxml_use_internal_errors($libxml_previous_state);
+
 		$entries = [];
-		foreach( $dom->find('tr') as $node)
+		foreach( $dom->getElementsByTagName('tr') as $node)
 		{	
-			$tds = $node->find('td');
-			if(count($tds)){
+			$tds = $node->getElementsByTagName('td');
+			if(count($tds) >2){
 				$reg = [];
 				$reg['id_contest'] = $contest->id;
-				$reg['entrant_name'] = $tds[0]->innertext;
-				$reg['entry_name'] = $tds[1]->innertext;
-				$reg['style'] = $tds[2]->innertext;
-				$reg['substyle_name'] = $tds[3]->innertext;
-				$reg['entry'] = $tds[4]->innertext; 
+				$reg['entrant_name'] = $tds[0]->nodeValue;
+				$reg['entry_name'] = $tds[1]->nodeValue;
+				$reg['style'] = $tds[2]->nodeValue;
+				$reg['substyle_name'] = $tds[3]->nodeValue;
+				$reg['entry'] = $tds[4]->nodeValue; 
 				$entries[] = $reg;
 			}
 		}

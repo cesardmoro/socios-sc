@@ -215,6 +215,7 @@ class Admin extends MY_Controller {
 		$this->load->model('Contest_Model');
 		$contest = $this->Contest_Model->get_contest($id);
 		if(!$contest) die('no existe el concurso');
+		
 		$this->Contest_Model->sync_entrants($contest);
 		$this->Contest_Model->sync_entries($contest);
 		$this->Contest_Model->update_contest_adherent_id();

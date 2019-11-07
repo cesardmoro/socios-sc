@@ -24,3 +24,5 @@ application/config/atabase.php
 application/config/email.php
 application/config/config.php
 application/config/database.php
+.vscode
+.vscode/*

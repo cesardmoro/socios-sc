@@ -63,7 +63,7 @@ class Contest_Model extends CI_Model {
 				$reg = [];
 				$reg['id_contest'] = $contest->id;
 				$reg['name'] = $tds[0]->innertext;
-				$reg['email'] = $tds[1]->find('a')->innertext;
+				$reg['email'] = $tds[1]->find('a')[0]->innertext;
 				$reg['phone'] = $tds[2]->innertext;
 				$reg['adress'] = $tds[4]->innertext;	
 				$entrants[] = $reg;

@@ -1,5 +1,9 @@
-name: remote ssh command
-on: [push]
+name: Remote ssh command master
+on: 
+  push:
+      # Sequence of patterns matched against refs/heads
+      branches:    
+        - master         # Push events on master branch
 jobs:
 
   build:

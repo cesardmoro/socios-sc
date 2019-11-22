@@ -169,7 +169,7 @@ class Socio extends CI_Controller {
 			$edit['zip'] = $this->input->post('cp');
 			$edit['address'] = $this->input->post('direccion');
 			$edit['town'] = $this->input->post('ciudad');
-			$edit['state_id'] = $this->input->post('provincia'); 
+			//$edit['state_id'] = $this->input->post('provincia'); 
 			$idSocio = $this->session->userdata('socio')->rowid;
 			$this->Account_Model->editPerfil($edit, $idSocio);
 

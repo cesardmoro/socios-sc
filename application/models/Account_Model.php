@@ -35,7 +35,7 @@ class Account_Model extends CI_Model {
 		AND p.rowid =  '23'
 		ORDER BY d.nom, p.code, d.code_departement";
 		
-		return $this->db->query($sql)->result();  
+		//return $this->db->query($sql)->result();  
 	}
 
 	function getSocioByUserId($id){

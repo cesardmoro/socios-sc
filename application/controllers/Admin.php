@@ -12,7 +12,8 @@ class Admin extends MY_Controller {
 		$this->load->model('Eventos_Model');
 		$this->load->model('Account_Model');
 		$this->load->library('grocery_CRUD');
-		$this->load->config("email");
+		$this->load->library('email');
+		$this->load->config('email');
 
 	}
 	public function capacitaciones()
@@ -42,6 +43,187 @@ class Admin extends MY_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	} 
+
+	// Callback function
+	public function _callback_get_entries_qry($value, $row) {
+		return $this->db->select('count(1) as qty')->where('id_contest', $row->id)->get('sc_contest_entries')->row('qty');
+	}
+	public function _callback_get_entrant_qry($value, $row) {
+		return $this->db->select('count(1) as qty')->where('id_contest', $row->id)->get('sc_contest_entrants')->row('qty');
+	}
+	public function concursos(){
+		try{
+
+			$crud = new grocery_CRUD(); 
+
+			//$crud->columns('email', 'role', 'adherent_id');
+			$crud->set_theme('material');
+			$crud->order_by('id');
+			$crud->set_table('sc_contest');
+			$crud->set_subject('Concursos');
+			//$crud->field_type('adherent_id', 'hidden');
+			//$crud->display_as('adherent_id','Socio');
+			//$crud->set_relation('adherent_id','llx_adherent','{firstname} {lastname} ({rowid})');
+			$crud->columns('competition_name', 'cantidad_entradas', 'cantidad_concursantes');
+			// Callback for the custom column _callback_get_counter
+			$crud->callback_column('cantidad_entradas', array($this, '_callback_get_entries_qry'));
+			$crud->callback_column('cantidad_concursantes', array($this, '_callback_get_entrant_qry'));
+
+
+			/* Just before the view I have this */
+
+			$this->state = $crud->getState();
+			/*if(in_array($this->state, array('list','success')))
+			{
+				$this->db->select('', false);
+				$q = $this->db->get('categories');
+			}*/
+
+
+
+		  	//$crud->field_type('enviada_confirmacion', 'dropdown', array('1' => 'Confirmación enviada', '0' => 'No enviada'));
+			//$crud->field_type('role','dropdown', array('USUARIO' => 'USUARIO', 'ADMIN' => 'ADMIN'));  
+
+			$crud->add_action('<i class="material-icons">autorenew</i>', '', 'admin/sync_contest_data', 'red syncconfirm');
+			$crud->add_action('Concursantes', '', 'admin/concursos_concursantes', 'green');
+			$crud->add_action('Entradas', '', 'admin/concursos_entradas', 'green');
+  	
+			$crud->unset_read(); 
+			$crud->unset_jquery(); 
+
+			$output = $crud->render(); 
+ 
+			$this->load->view('main',(array)$output);
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	public function upload_entries_file($id){ 
+		$replace = $this->input->post()['replace'];
+		$this->load->model('Contest_Model');
+		$contest = $this->Contest_Model->get_contest($id);
+		$filedir = FCPATH.'upload/'.$contest->id.'/';
+		if(array_key_exists('entries', $_FILES) && $_FILES["entries"]["name"]) {
+			$filename = $_FILES["entries"]["name"];
+			$source = $_FILES["entries"]["tmp_name"];
+			$type = $_FILES["entries"]["type"];
+			
+			$name = explode(".", $filename);
+			$accepted_types = array('application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed');
+			foreach($accepted_types as $mime_type) {
+				if($mime_type == $type) {
+					$okay = true;
+					break;
+				} 
+			}
+			
+			$continue = strtolower($name[1]) == 'zip' ? true : false;
+			if(!$continue) {
+				$message = "The file you are trying to upload is not a .zip file. Please try again.";
+			}
+			if(!file_exists($filedir))mkdir($filedir);
+			
+			$target_path = $filedir.$filename; // change this to the correct site path
+			if(move_uploaded_file($source, $target_path)) {
+				$zip = new ZipArchive();
+				$x = $zip->open($target_path);
+				if ($x === true) {
+					$zip->extractTo($filedir); // change this to the correct site path
+					$zip->close();
+					unlink($target_path);
+				}
+			} 
+			$entradas = 0;
+			$files = scandir($filedir);
+			foreach($files as $file){
+				$fname = preg_replace('/\\.[^.\\s]{3,4}$/', '', $file);
+				$entry = $this->db->select('*')->where('entry', $file)->where('id_contest', $contest->id)->get('sc_contest_entries')->row();
+				if($entry){
+					if(!$entry->entry_file || $replace == "on"){
+						$newFilename = $filedir. uniqid() .'.pdf';
+						rename($filedir.$file, $newFilename);
+						$this->db->where('id', $entry->id)->where('id_contest', $contest->id)->update('sc_contest_entries', ['entry_file'=>$newFilename, 'entry_confirm' => 1]); 
+						$entradas++;
+					}
+				
+				}
+			}
+			$this->session->set_flashdata('message', 'Cargadas '.$entradas.' Entradas correctamente' );
+		}else{
+			$this->session->set_flashdata('error', 'Seleccione un archivo' );
+		}
+    	redirect('admin/concursos_entradas/'.$contest->id); 
+	}
+
+
+
+
+
+	public function concursos_entradas($id){
+		try{
+
+		$this->load->model('Contest_Model');
+		$contest = $this->Contest_Model->get_contest($id);
+		$stats = $this->Contest_Model->get_contest_statics($id);
+		$data = array('contest' => $contest, 'stats' => $stats);
+		$crud = new grocery_CRUD(); 
+		$crud->set_theme('material');
+		$crud->order_by('id');
+		$crud->where('id_contest',$id);
+		$crud->set_table('sc_contest_entries');
+		$crud->set_subject('Entradas');
+		$crud->unset_read(); 
+		$crud->unset_add();
+		$crud->unset_export();
+		$crud->unset_print();
+		$crud->unset_add();
+		$crud->unset_jquery(); 
+		$crud->set_relation('id_contest','sc_contest','competition_name');
+		$crud->columns(['entrant_name','entry_name', 'style', 'substyle_name', 'entry', 'entry_confirm', 'entry_file', 'entry_sent']);
+		$crud->add_action('Confirmar', '', 'admin/confirmar_entrada', 'green btn-confirm-entry');
+		$crud->field_type('entry_confirm', 'dropdown', array('0' => 'Sin confirmar', '1' => 'Confirmada'));
+
+		$output = $crud->render(); 
+		$output->output = $this->load->view('concursos/send', $data, true).$output->output;
+		
+		$this->load->view('main',(array)$output);
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	public function concursos_concursantes($id){
+		try{
+
+			$crud = new grocery_CRUD(); 
+			$crud->set_theme('material');
+			$crud->order_by('id');
+			$crud->set_table('sc_contest_entrants');
+			$crud->set_subject('Concursos');
+			$crud->where('id_contest',$id);
+			$crud->unset_read(); 
+			$crud->unset_jquery(); 
+		
+			$output = $crud->render(); 
+			$this->load->view('main',(array)$output);
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+	public function sync_contest_data($id){
+		$this->load->model('Contest_Model');
+		$contest = $this->Contest_Model->get_contest($id);
+		if(!$contest) die('no existe el concurso');
+		
+		$this->Contest_Model->sync_entrants($contest);
+		$this->Contest_Model->sync_entries($contest);
+		$this->Contest_Model->update_contest_adherent_id();
+		
+    	$this->session->set_flashdata('message', 'Concurso sincronizado correctamente' );
+    	redirect('admin/concursos/'); 
+
+	}
 	public function festival(){
 		try{
 			$crud = new grocery_CRUD(); 
@@ -110,8 +292,7 @@ class Admin extends MY_Controller {
 		$token = $this->Account_Model->getToken($socio, true);
         $data['link'] = base_url().'login/token/'.$token.'/1'; 
         $body = $this->load->view('login/email-recuperar', $data, true);			   
-		$this->load->library('email');
-		$this->load->config('email');
+
         $this->email->initialize($this->config->item('email'));
         $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
         $this->email->to($socio->email);  
@@ -162,6 +343,7 @@ class Admin extends MY_Controller {
 		$output->output = $this->load->view('inscripciones', $data, true);
 		$this->load->view('main',(array)$output); 
 	} 
+	
 	public function eliminar_inscripcion($id_evento, $id_inscripcion){
 		$this->Eventos_Model->eliminar_inscripcion($id_evento, $id_inscripcion);
 		$this->session->set_flashdata('message', 'Se ha eliminado la inscripción, se notificaran los usuarios que estaban en lista de espera y entran a cupo');  
@@ -171,6 +353,49 @@ class Admin extends MY_Controller {
 	public function test( $id_evento, $id_inscripcion){
 		 $this->Eventos_Model->notificar_participantes( $id_evento, $id_inscripcion);
 
+	} 
+	public function confirmar_entrada($id){
+		$this->load->model('Contest_Model');
+		$this->Contest_Model->confirm_entry($id);
+		$entry = $this->Contest_Model->get_entry($id);
+		echo json_encode($entry);
+	}
+	public function enviar_devolucion($id_contest){
+		$this->load->model('Contest_Model');
+		$contest = $this->Contest_Model->get_contest($id_contest);
+		$entrants = $this->Contest_Model->get_entries_for_send($id_contest);
+		foreach($entrants as $e){
+			$data = ['entrant' => $e, 'contest'=>$contest];
+			$body = $this->load->view('concursos/email-devolucion', $data, true);			   
+			$this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+			$this->email->to($e->email);   
+			$this->email->set_mailtype("html");
+			$this->email->subject('Somos Cerveceros | Devolucion concurso');
+			$this->email->message($body);  
+			$this->Contest_Model->update_entries_sent($e->entries);
+			$r = $this->email->send();  
+		}
+		$this->session->set_flashdata('message', 'Se enviaron '.count($entrants).' emails de devoluciones' );
+    	redirect('admin/concursos_entradas/'.$contest->id); 
+	}
+	public function enviar_perdidas($id_contest){
+		$this->load->model('Contest_Model');
+		$this->load->model('Contest_Model');
+		$contest = $this->Contest_Model->get_contest($id_contest);
+		$entrants = $this->Contest_Model->get_entries_for_lost($id_contest);
+		foreach($entrants as $e){
+			$data = ['entrant' => $e, 'contest'=>$contest];
+			$body = $this->load->view('concursos/email-perdidos', $data, true);			   
+			$this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+			$this->email->to($e->email);   
+			$this->email->set_mailtype("html");
+			$this->email->subject('Somos Cerveceros | Devolucion concurso');
+			$this->email->message($body);  
+			//$this->Contest_Model->update_entries_sent($e->entries);
+			$r = $this->email->send();  
+		}
+		$this->session->set_flashdata('message', 'Se enviaron '.count($entrants).' emails de perdida de muestras' );
+    	redirect('admin/concursos_entradas/'.$contest->id); 
 	}
 
 

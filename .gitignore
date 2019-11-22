@@ -18,6 +18,11 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 /qr/
+/upload/*
 qr.zip
 application/config/atabase.php
 application/config/email.php
+application/config/config.php
+application/config/database.php
+.vscode
+.vscode/*

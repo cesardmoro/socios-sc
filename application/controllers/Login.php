@@ -10,6 +10,8 @@ class Login extends CI_Controller {
 		if($this->session->userdata('socio')){
 			redirect('dashboard');
 		}
+		$this->load->library('email');
+		$this->load->config('email');
 	}
 
 	public function index()
@@ -39,8 +41,7 @@ class Login extends CI_Controller {
 
 			        $data['link'] = base_url().'login/token/'.$token; 
 			        $body = $this->load->view('login/email-nuevo', $data, true);			   
-					$this->load->library('email'); 
-					$this->load->config('email');
+
 			        $this->email->initialize($this->config->item('email'));
 			        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
 			        $this->email->to($socio->email);  

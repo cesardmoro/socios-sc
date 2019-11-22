@@ -26,15 +26,7 @@
           <label for="ciudad">Ciudad</label>
       </div> 
      
-    <div class="input-field col s12">
-       <select  id="provincia"  name="provincia">
-            <?php foreach($estados as $estado){?>
-              <option <?php echo ($socio->state_id == $estado->rowid) ? "selected" : "";?> value="<?php echo $estado->rowid?>"><?php echo $estado->nom?></option>
-            <?php } ?>         
-        </select>
-      <label for="provincia">Provincia</label>
-    </div>
-  </div>
+   
     <button class="btn green" type="submit">Actualizar</button>
 
 </form>

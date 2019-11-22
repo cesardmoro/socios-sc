@@ -7,7 +7,7 @@ class Contest_Model extends CI_Model {
 		return $this->db->select('*')->get('sc_contest')->result();
 	}
 	public function get_style_report($id_contest){
-		return $this->db->select('count(1) as qty, style, substyle_name')->where('id_contest', $id_contest)->group_by('style, substyle_name')->order_by('style')->get('sc_contest_entries')->result();
+		return $this->db->select('count(1) as qty, style, substyle_name')->where('id_contest', $id_contest)->where('entry_confirm', 1)->group_by('style, substyle_name')->order_by('style')->get('sc_contest_entries')->result();
 	}
 	public function get_contest($id){
 		return $this->db->select('*')->where('id', $id)->get('sc_contest')->row();

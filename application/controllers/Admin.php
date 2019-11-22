@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Admin extends MY_Controller {
 
 	public function __construct()
@@ -87,6 +88,7 @@ class Admin extends MY_Controller {
 			$crud->add_action('<i class="material-icons">autorenew</i>', '', 'admin/sync_contest_data', 'red syncconfirm');
 			$crud->add_action('Concursantes', '', 'admin/concursos_concursantes', 'green');
 			$crud->add_action('Entradas', '', 'admin/concursos_entradas', 'green');
+			$crud->add_action('Reporte estilos', '', 'admin/reporte_estilos', 'blue');
   	
 			$crud->unset_read(); 
 			$crud->unset_jquery(); 
@@ -99,6 +101,45 @@ class Admin extends MY_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+	public function reporte_estilos($id_contest){
+		$this->load->model('Contest_Model');
+		$estilos = $this->Contest_Model->get_style_report($id_contest);
+		$output['output'] = $this->load->view('concursos/reporte_estilos', array('estilos' => $estilos, 'id_contest' => $id_contest), true);
+		$this->load->view('main',(array)$output);
+	}
+
+	public function reporte_estilos_csv($id_contest){
+		$this->load->model('Contest_Model');
+		$contest = $this->Contest_Model->get_contest($id_contest);
+		$estilos = $this->Contest_Model->get_style_report($id_contest);
+
+		$spreadsheet = new Spreadsheet(); // instantiate Spreadsheet
+
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // configuramos header
+        $sheet->setCellValue('A1', 'Estilo'); 
+        $sheet->setCellValue('B1', 'Nombre Subestilo');
+		$sheet->setCellValue('C1', 'Cantidad');
+		$row = 2;
+		foreach($estilos as $v){
+			$sheet->setCellValue('A'.$row, $v->style); 
+			$sheet->setCellValue('B'.$row, $v->substyle_name);
+			$sheet->setCellValue('C'.$row, $v->qty);
+			$row++;
+		}
+        
+        $writer = new Xlsx($spreadsheet); // instantiate Xlsx
+ 
+        $filename = $contest->competition_name ; // set filename for excel file to be exported
+ 
+        header('Content-Type: application/vnd.ms-excel'); // generate excel file
+        header('Content-Disposition: attachment;filename="'. $filename .'.xlsx"'); 
+        header('Cache-Control: max-age=0');
+        
+        $writer->save('php://output');	// download file 
+	}
+	
 	public function upload_entries_file($id){ 
 		$replace = $this->input->post()['replace'];
 		$this->load->model('Contest_Model');

@@ -137,14 +137,16 @@ class Contest_Model extends CI_Model {
 		}
 		return $entrants;
 	}
-
+	
 	public function get_entries_for_send($id_contest){
-
+		//Added distinct to entries
+		$this->db->distinct();
 		$entrants = $this->db->select('scentrants.*')->join('sc_contest_entries scentries','scentrants.name = scentries.entrant_name')->where('scentries.id_contest', $id_contest)->where('scentrants.id_contest', $id_contest)->where('scentries.entry_file is not null')->get('sc_contest_entrants scentrants')->result(); 
-
 		foreach($entrants as $e){
 			$e->entries = $this->db->select('*')->where('id_contest', $id_contest)->where('entrant_name', $e->name)->where('entry_file is not null')->get('sc_contest_entries')->result();
 		}
+		var_export($entrants);
+		echo $this->db->last_query();die();
 		return $entrants;
 		
 		

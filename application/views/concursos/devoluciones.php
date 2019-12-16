@@ -9,7 +9,6 @@
 			<th>Nombre de la entrada</th>
 			<th>Estilo</th>
 			<th>Subestilo</th>
-			<th>N° de entrada</th>
 			<th>Devolucion</th>
 		<tr>
 	</thead>
@@ -25,10 +24,6 @@
 		<td>
 			<?php echo $e->substyle_name ?>
 		</td>
-		<td>
-			<?php echo $e->entry ?>
-		</td>
-
 		<td>
 			<?php if($e->entry_file != "") {?> 
 			<a target="_blank" href="/<?php echo str_replace(FCPATH, '', $e->entry_file)?>">Ver devolucion</a>

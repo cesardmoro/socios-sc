@@ -145,11 +145,7 @@ class Contest_Model extends CI_Model {
 		foreach($entrants as $e){
 			$e->entries = $this->db->select('*')->where('id_contest', $id_contest)->where('entrant_name', $e->name)->where('entry_file is not null')->get('sc_contest_entries')->result();
 		}
-		var_export($entrants);
-		echo $this->db->last_query();die();
 		return $entrants;
-		
-		
 	}
 	public function confirm_entry($id){
 		$this->db->where('id', $id)->update('sc_contest_entries', ['entry_confirm' => 1]);

@@ -37,7 +37,7 @@ CREATE TABLE `sc_contest_entries` (
 	`style` VARCHAR(10) NULL DEFAULT '0',
 	`substyle_name` VARCHAR(100) NULL DEFAULT '0',
 	`entry` INT(11) NULL DEFAULT '0',
-	`entry_file` VARCHAR(50) NULL DEFAULT NULL,
+	`entry_file` VARCHAR(255) NULL DEFAULT NULL,
 	`entry_sent` DATETIME NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
 	INDEX `id_contest` (`id_contest`),

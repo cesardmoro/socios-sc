@@ -216,7 +216,7 @@ class Admin extends MY_Controller {
 		$crud->set_subject('Entradas');
 		$crud->unset_read(); 
 		$crud->unset_add();
-		$crud->unset_export();
+		$crud->unset_export(); 
 		$crud->unset_print();
 		$crud->unset_add();
 		$crud->unset_jquery(); 
@@ -425,7 +425,7 @@ class Admin extends MY_Controller {
 		$contest = $this->Contest_Model->get_contest($id_contest);
 		$entrants = $this->Contest_Model->get_entries_for_lost($id_contest);
 		foreach($entrants as $e){
-			$data = ['entrant' => $e, 'contest'=>$contest];
+			$data = ['entrant' => $e, 'contest'=>$contest];  
 			$body = $this->load->view('concursos/email-perdidos', $data, true);			   
 			$this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
 			$this->email->to($e->email);   

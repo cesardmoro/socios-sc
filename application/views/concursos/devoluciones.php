@@ -26,10 +26,10 @@
 		</td>
 		<td>
 			<?php if($e->entry_file != "") {?> 
-			<a target="_blank" href="/<?php echo str_replace(FCPATH, '', $e->entry_file)?>">Ver devolucion</a>
+			<a target="_blank" href="<?php echo base_url()?><?php echo str_replace(FCPATH, '', $e->entry_file)?>">Ver devolucion</a>
 			<?php }else{?>
 				Devolucion no cargada aun
-				<?php } ?>
+				<?php } ?> 
 		</td>
 	</tr>
 <?php } ?>

@@ -141,7 +141,7 @@ class Admin extends MY_Controller {
 	}
 	
 	public function upload_entries_file($id){ 
-		$replace = $this->input->post()['replace'];
+		$replace = $this->input->post("replace");
 		$this->load->model('Contest_Model');
 		$contest = $this->Contest_Model->get_contest($id);
 		$filedir = FCPATH.'upload/'.$contest->id.'/';

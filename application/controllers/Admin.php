@@ -326,7 +326,7 @@ class Admin extends MY_Controller {
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
-	}
+	} 
 	public function recuperar_pass($id){
 
 		$socio = $this->Account_Model->getSocioByUserId($id);
@@ -334,7 +334,7 @@ class Admin extends MY_Controller {
         $data['link'] = base_url().'login/token/'.$token.'/1'; 
         $body = $this->load->view('login/email-recuperar', $data, true);			   
 
-        $this->email->initialize($this->config->item('email'));
+       // $this->email->initialize($this->config->item('email'));
         $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
         $this->email->to($socio->email);  
         $this->email->set_mailtype("html");

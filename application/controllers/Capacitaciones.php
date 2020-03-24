@@ -10,7 +10,7 @@ class Capacitaciones extends MY_Controller {
 		$this->load->helper('url');
 		$this->load->model('Eventos_Model');
 		$this->load->library('email');
-		$this->load->config('email');
+		//$this->load->config('email');
 	}
 	public function inscribirse($id){
 		if($this->session->userdata('socio')){

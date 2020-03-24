@@ -11,7 +11,7 @@ class Login extends CI_Controller {
 			redirect('dashboard');
 		}
 		$this->load->library('email');
-		//$this->load->config('email');
+		$this->load->config('email');
 	}
 
 	public function index()
@@ -42,7 +42,7 @@ class Login extends CI_Controller {
 			        $data['link'] = base_url().'login/token/'.$token; 
 			        $body = $this->load->view('login/email-nuevo', $data, true);			   
 
-			        $this->email->initialize($this->config->item('email'));
+			        
 			        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
 			        $this->email->to($socio->email);  
 			        $this->email->set_mailtype("html");

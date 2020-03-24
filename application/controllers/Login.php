@@ -11,7 +11,7 @@ class Login extends CI_Controller {
 			redirect('dashboard');
 		}
 		$this->load->library('email');
-		$this->load->config('email');
+		//$this->load->config('email');
 	}
 
 	public function index()

@@ -39,7 +39,7 @@ class Eventos_Model extends CI_Model {
 
 	public function inscribirse($id_evento, $id_socio){
 
-		$event = $this->db->select('*')->where('id', $id_evento)->where('fecha >', date('Y-m-d'))->get('sc_eventos')->row();   
+		$event = $this->db->select('*')->where('id', $id_evento)->where('fecha >=', date('Y-m-d'))->get('sc_eventos')->row();   
 		if($event){
 			if($event->tipo_validacion == 1){ //Validación festival
 				$fes = $this->db->select('id_paquete')->where('id_socio', $id_socio)->where('estado_pago >=', 1)->where_in('id_paquete', array(0,1,2))->order_by('id_paquete', 'desc')->get('sc_festival_inscripciones')->row();  

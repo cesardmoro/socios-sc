@@ -9,7 +9,7 @@ class Eventos_Model extends CI_Model {
 		$this->db->select('(cupos-(select count(1) from sc_eventos_inscripciones where id_evento = e.id)-reservados) as vacantes');
 		$this->db->from('sc_eventos e');
 		$this->db->join('sc_eventos_inscripciones ei', "ei.id_evento = e.id and ei.id_socio = '".$id_socio."'",  'left');
-		$this->db->where('e.fecha >', date('Y-m-d')); 
+		$this->db->where('e.fecha >', date('Y-m-d H:i:s')); 
 		$this->db->where('e.oculto', 0);
 		$this->db->order_by('fecha');
  		$res = $this->db->get()->result();

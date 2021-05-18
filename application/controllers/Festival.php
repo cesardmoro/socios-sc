@@ -14,8 +14,9 @@ class Festival extends MY_Controller {
 	}
 	public function index($id = null){ 
 		$socio = $this->session->userdata('socio'); 
+		if(!$socio) redirect('dashboard') ;
 
-		if(!$socio || ($socio && $socio->datefin >= date('Y-m-d'))){   
+		if( ($socio && $socio->datefin >= date('Y-m-d'))){
 			if(!$this->input->post()){
 				$output = array();
 				if($socio) $data = array('nro_socio' => $socio->rowid);

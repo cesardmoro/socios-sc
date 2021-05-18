@@ -6,10 +6,12 @@ Confirmamos tu reserva <b>Cod. <?php echo str_pad($id, 5, 0, STR_PAD_LEFT);?></b
 <br> 
 PAQUETE FULL PREVENTA para socios Somos Cerveceros hasta agotar stock:
 <br><b>
- $6500 finales</b>
+ $6500 finales</b><br><br>
 
-Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 13, en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
-Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 14 y domingo 15, en la Finca Hostal Castellanos.
+Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 13. en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
+Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines,
+entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 14 y domingo 15, en la Finca Hostal Castellanos.
+
    
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>
  > MercadoPago (en cuyo caso tiene incluido el interés que cobra el servicio del 6,5%) en el siguiente Link "Pendiente pedir a lucho canepa" <br>

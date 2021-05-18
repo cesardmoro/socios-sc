@@ -1,24 +1,18 @@
 Confirmamos tu reserva <b>Cod. <?php echo str_pad($id, 5, 0, STR_PAD_LEFT);?></b> <br>
 <br>
-<b>PACK FULL PREVENTA $ 3500</b><br>
+
+
+<b>PACK FULL PREVENTA $6500</b><br>
 <br> 
 PAQUETE FULL PREVENTA para socios Somos Cerveceros hasta agotar stock:
 <br><b>
- $3500 finales</b>
-<br>
-- Viernes 16/08: Acreditación, recepción con servicio de catering y Cerveza del Festival, 
-<br>
-- Sabado 17-08: Conferencias en el Hotel Portal Del lago Ciclo de Conferencias y talleres, con disertantes nacionales e internacionales. Sala de Expositores.
-<br> 
-- Sábado 17/11 (de 14 a 18 hs): ENCUENTRO de CAMARADERÍA en ESPACIO LIV - Y como siempre ¡Gran intercambio gran de cervezas, no olvidés traer la tuya! 
-<br>
-- Domingo 18/08: Conferencias en el Hotel Portal Del lago Ciclo de Conferencias y talleres, con disertantes nacionales e internacionales. Sala de Expositores.
-<br>
-- Domingo 18/08: FIESTA de CIERRE en ESPACIO LIV 40 canillas, 13 cervecerías locales y más 60 estilos de todo el país, Food Trucks, Bandas en Vivo, entrega de premios Cervecero del Año.
-<br>
+ $6500 finales</b>
+
+Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 13, en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
+Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 14 y domingo 15, en la Finca Hostal Castellanos.
    
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>
- > MercadoPago (en cuyo caso tiene incluido el interés que cobra el servicio del 6,5%) en el siguiente Link https://www.mercadopago.com/mla/checkout/start?pref_id=174141320-ebf9b7d4-3262-4530-b14d-7dd656071f1b <br>
+ > MercadoPago (en cuyo caso tiene incluido el interés que cobra el servicio del 6,5%) en el siguiente Link "Pendiente pedir a lucho canepa" <br>
  > Transferencia Bancaria a la Cuenta de la Asociación.<br>
  
 

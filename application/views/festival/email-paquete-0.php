@@ -19,7 +19,7 @@ La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes rea
  
 
 En caso de realizar una transferencia menciona tu código de Reserva qu e te generó el sistema al enviarnos el comprobante.<br>
-<b>Es imprescindible  que nos envíes un mail a festival@somoscerveceros.com.ar con el comprobante de pago una vez realizado el mismo. (Ya sea por ML o Transferencia) caso contrario no se registrará tu pago.</b><br>
+<b>Es imprescindible  que nos envíes un mail a festivalsomoscerveceros@gmail.com con el comprobante de pago una vez realizado el mismo. (Ya sea por ML o Transferencia) caso contrario no se registrará tu pago.</b><br>
 <br>
 Datos cuenta:<br>
 ASOCIACIÓN CIVIL SOMOS CERVECEROS<br>

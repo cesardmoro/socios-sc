@@ -14,7 +14,7 @@ entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del 
 
    
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>
- > MercadoPago (en cuyo caso tiene incluido el interés que cobra el servicio del 6,5%) en el siguiente Link "Pendiente pedir a lucho canepa" <br>
+ > MercadoPago (en cuyo caso tiene incluido el interés que cobra el servicio del 6,5%) en el siguiente Link https://mpago.la/1aQGVQd <br>
  > Transferencia Bancaria a la Cuenta de la Asociación.<br>
  
 

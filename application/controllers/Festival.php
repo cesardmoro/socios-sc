@@ -14,7 +14,7 @@ class Festival extends MY_Controller {
 	}
 	public function index($id = null){ 
 		$socio = $this->session->userdata('socio'); 
-		if(!$socio) redirect('dashboard') ;
+		//if(!$socio) redirect('dashboard') ;
 
 		if( ($socio && $socio->datefin >= date('Y-m-d'))){
 			if(!$this->input->post()){

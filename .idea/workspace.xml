@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6675685c-eaa3-467a-a317-bfc2cabd1de3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/clase2.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Festival.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Festival.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/festival/email-paquete-0.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/email-paquete-0.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/festival/email-paquete-1.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/email-paquete-1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/festival/email-paquete-no-1.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/email-paquete-no-1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/festival/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -25,6 +49,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sia_importador" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -36,21 +62,61 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1621378954087</updated>
-      <workItem from="1621378955891" duration="2767000" />
+      <workItem from="1621378955891" duration="2951000" />
+      <workItem from="1621626185169" duration="21000" />
+      <workItem from="1621714636539" duration="1066000" />
+      <workItem from="1622300777310" duration="347000" />
+      <workItem from="1622466894058" duration="576000" />
+      <workItem from="1622735812157" duration="6255000" />
+      <workItem from="1623865011261" duration="602000" />
+      <workItem from="1625408814481" duration="380000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="-1180" y="275" key="FileChooserDialogImpl" timestamp="1622467472384">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1180" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622467472384" />
+    <state x="-1133" y="243" key="NewPhpClassDialog" timestamp="1622735872229">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1133" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622735872229" />
+    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1622736118441">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622736118441" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1621379454722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621379454722" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1621379531639">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-1253" y="253" width="585" height="534" key="find.popup" timestamp="1625408991597">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="-1253" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1625408991597" />
+    <state x="-1304" y="240" key="run.anything.popup" timestamp="1622736601803">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1304" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622736601803" />
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622735905389">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622735905389" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621379531639" />
   </component>
 </project>

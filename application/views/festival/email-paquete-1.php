@@ -8,9 +8,9 @@ PACK FULL SOCIOS para socios Somos Cerveceros hasta agotar stock:
 <br><b>
  $7900 finales</b><br><br>
 
-Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 13. en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
+Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 29. en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
 Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines,
-entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 14 y domingo 15, en la Finca Hostal Castellanos.
+entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 30 y domingo 31, en la Finca Hostal Castellanos.
 
 
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>

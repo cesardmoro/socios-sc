@@ -12,7 +12,7 @@ Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector d
 			</div>
 
 			 <div class="card-action">
-          		Preventa 6500 hasta el 18 de junio inclusive y venta 7900 a partir de ese día. solo para socios
+          		Preventa $7900 para socios
             </div>
 		</div>
 	</div>

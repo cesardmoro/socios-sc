@@ -42,7 +42,7 @@ Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector d
 	<div class="input-field col s12">
 	    <select name="id_paquete" required>
 	      <option value=""  selected>Seleccione PACK</option>
- 	      <option value="0" >PACK FULL</option>
+ 	      <option value="1" >PACK FULL</option>
 	    </select>
     	<label for="id_paquete">Paquete </label>
   </div>

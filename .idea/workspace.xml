@@ -20,13 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6675685c-eaa3-467a-a317-bfc2cabd1de3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clase2.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Festival.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Festival.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/festival/email-paquete-0.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/email-paquete-0.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/festival/email-paquete-1.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/email-paquete-1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/festival/email-paquete-no-1.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/email-paquete-no-1.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/festival/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/festival/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +65,7 @@
       <workItem from="1622466894058" duration="576000" />
       <workItem from="1622735812157" duration="6255000" />
       <workItem from="1623865011261" duration="602000" />
-      <workItem from="1625408814481" duration="380000" />
+      <workItem from="1625408814481" duration="1734000" />
     </task>
     <servers />
   </component>
@@ -97,26 +93,26 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1133" y="243" key="NewPhpClassDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622735872229" />
-    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1622736118441">
+    <state x="-1126" y="443" key="NewPhpFileDialog" timestamp="1625409437456">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622736118441" />
+    <state x="-1126" y="443" key="NewPhpFileDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1625409437456" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1621379454722">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621379454722" />
-    <state x="-1253" y="253" width="585" height="534" key="find.popup" timestamp="1625408991597">
+    <state x="-1253" y="253" width="585" height="534" key="find.popup" timestamp="1625410379110">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1253" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1625408991597" />
+    <state x="-1253" y="253" width="585" height="534" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1625410379110" />
     <state x="-1304" y="240" key="run.anything.popup" timestamp="1622736601803">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1304" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622736601803" />
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622735905389">
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1625410483140">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1622735905389" />
+    <state x="-1297" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1625410483140" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1621379531639" />
   </component>
 </project>

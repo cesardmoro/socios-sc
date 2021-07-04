@@ -5,8 +5,8 @@
     	<div class="card" >
             <div class="card-content">
 				<span class="card-title">PAQUETE FULL (único disponible)</span>
-				<p> Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 13, en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
-Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 14 y domingo 15, en la Finca Hostal Castellanos.
+				<p> Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 29, en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
+Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 30 y domingo 31, en la Finca Hostal Castellanos.
 				        
 				 </p>
 			</div>

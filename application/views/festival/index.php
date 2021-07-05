@@ -12,7 +12,7 @@ Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector d
 			</div>
 
 			 <div class="card-action">
-          		Preventa $7900 para socios
+                    <b>PACK FULL SOCIOS $7900 / $9000 NO SOCIOS  </b><br>
             </div>
 		</div>
 	</div>

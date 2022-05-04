@@ -13,11 +13,11 @@ class Festival extends MY_Controller {
 		$this->load->config('email');
 	}
 	public function index($id = null){
-		
-	    if($socio->rowid != 977) $this->session->set_flashdata('error', 'No se puede inscribir al festival porque esta agotado');
+		$socio = $this->session->userdata('socio'); 
+	    if(!$socio || $socio->rowid != 977) $this->session->set_flashdata('error', 'No se puede inscribir al festival porque esta agotado');
 		
 			redirect('dashboard') ;
-		$socio = $this->session->userdata('socio'); 
+		
 		//if(!$socio) redirect('dashboard') ;
 
 		if( !$socio || $socio->datefin >= date('Y-m-d')){

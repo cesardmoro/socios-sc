@@ -13,7 +13,7 @@ $config['email']['newline']    = "\r\n";
 $config['email']['mailtype'] = 'text'; // or html 
 $config['email']['validation'] = false; // bool whether to validate email or not      
 /*
- gmail - funciona
+ //gmail - funciona
 defined('BASEPATH') OR exit('No direct script access allowed');
 $config['email'] =array();
 $config['email']['protocol']    = 'smtp';
@@ -26,7 +26,5 @@ $config['email']['smtp_pass']    = 's1st3m4s0c10s';
 $config['email']['charset']    = 'utf-8';
 $config['email']['newline']    = "\r\n"; 
 $config['email']['mailtype'] = 'text'; // or html 
-$config['email']['validation'] = false; // bool whether to validate email or not      
-
-
+$config['email']['validation'] = false; // bool whether to 
 */

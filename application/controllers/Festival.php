@@ -13,13 +13,7 @@ class Festival extends MY_Controller {
 		$this->load->config('email');
 	}
 	public function index($id = null){
-		$socio = $this->session->userdata('socio'); 
-	    if(!$socio || $socio->rowid != 977) $this->session->set_flashdata('error', 'No se puede inscribir al festival porque esta agotado');
-		
-			redirect('dashboard') ;
-		
-		//if(!$socio) redirect('dashboard') ;
-
+		$socio = $this->session->userdata('socio');
 		if( !$socio || $socio->datefin >= date('Y-m-d')){
 			if(!$this->input->post()){
 				$output = array();
@@ -35,12 +29,12 @@ class Festival extends MY_Controller {
 				if($data['nombre'] && $data['dni'] && $data['email'] && $data['telefono']){
 					$socio = $this->session->userdata('socio');
 					$id = ($socio) ? $socio->rowid : null; 
-					$soc = ($id == null) ? "no-" : "";
+					$soc = ($id == null) ? "no-" : "";  
 					
 					$res = $this->Festival_Model->inscribir($id, $data);  
 					//if($res){ 
 						 
-						$body = $this->load->view('festival/email-paquete-'.$soc.$data['id_paquete'], array('id' => $res), true);
+						$body = $this->load->view('festival/email-paquete-'.$soc."1", array('id' => $res), true);
 				        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
 				        $this->email->to($data['email']);    
 				        $this->email->set_mailtype("html"); 
@@ -63,7 +57,7 @@ class Festival extends MY_Controller {
 			}
 		}
 		else{ 
-			$this->session->set_flashdata('error', 'No se puede inscribir a al festival porque tiene la cuota vencida');  
+			$this->session->set_flashdata('error', 'No se puede inscribir a al festival porque tiene la cuota vencida - '.$socio->datefin);  
 			redirect('dashboard') ;
 		} 
 	} 

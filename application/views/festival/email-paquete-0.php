@@ -8,7 +8,7 @@ PACK FULL SOCIOS para socios Somos Cerveceros hasta agotar stock:
 <br><b>
  $8500 finales socios </b><br><br>
 
-Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 12, que se realizará en el Predio de “La Nave Creativa” perteneciente a la Nave Uncuyo ( https://g.page/naveuncuyo?share ). Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 13 y domingo 14, los mismos se realizarán en La Nave Creativa y el 23 Ríos respectivamente.
+Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 12, que se realizará en el Predio de “La Nave Creativa” perteneciente a la Nave Uncuyo ( https://g.page/naveuncuyo?share ). Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 13 y domingo 14, los mismos se realizarán en La Nave Creativa y en 23 Ríos respectivamente.
 
    
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>

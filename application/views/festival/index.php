@@ -5,14 +5,20 @@
     	<div class="card" >
             <div class="card-content">
 				<span class="card-title">PAQUETE FULL (único disponible)</span>
-				<p> Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 29, en un bar exclusivo reservado para el evento en el centro de la ciudad de Salta.
-Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 30 y domingo 31, en la Finca Hostal Castellanos.
+				<p>
+					Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 12,
+					que se realizará en el Predio de “La Nave Creativa” perteneciente a la Nave Uncuyo ( https://g.page/naveuncuyo?share ).
+					Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines,
+					 entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 13 y domingo 14,
+					  los mismos se realizarán en La Nave Creativa y en 23 Ríos respectivamente.
+
 				        
 				 </p>
 			</div>
 
 			 <div class="card-action">
-                    <b>PACK FULL SOCIOS $7900 / $9000 NO SOCIOS  </b><br>
+                    <b>PACK FULL SOCIOS $11000</b><br>
+					<b>PACK FULL NO SOCIOS $13000</b><br>
             </div>
 		</div>
 	</div>
@@ -43,7 +49,7 @@ Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector d
 	<br>
 </div>
 	<?php } ?>
-	<div class="input-field col s12">
+	<div class="input-field col s12"> 
 	    <select name="id_paquete" required>
 	      <option value=""  selected>Seleccione PACK</option>
  	      <option value="1" >PACK FULL</option>

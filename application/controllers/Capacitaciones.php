@@ -19,7 +19,7 @@ class Capacitaciones extends MY_Controller {
 				$res = $this->Eventos_Model->inscribirse($id, $this->session->userdata('socio')->rowid);
 				if($res){
 					$capacitacion = $this->Eventos_Model->get_capacitacion($id);
-	   		        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+	   		        $this->email->from('capacitaciones@somoscerveceros.com.ar', 'Somos Cerveceros');
 			        $this->email->to($socio->email);  
 			        $this->email->set_mailtype("html");
 					
@@ -54,7 +54,7 @@ class Capacitaciones extends MY_Controller {
 			$capacitacion = $this->Eventos_Model->get_capacitacion($id);
 			$data = array('capacitacion' => $capacitacion ,  'socio' => $socio); 
 			$body = $this->load->view('capacitaciones/email-capacitacion-cancelar-inscripcion', $data, true);		
-		        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+		        $this->email->from('capacitaciones@somoscerveceros.com.ar', 'Somos Cerveceros');
 	        $this->email->to($socio->email);  
 	        $this->email->set_mailtype("html");
 	        $this->email->subject('Somos Cerveceros | Cancelada su inscripción');
@@ -114,7 +114,7 @@ class Capacitaciones extends MY_Controller {
 					$data['capacitacion'] = $cap; 
 					$data['link'] = 'capacitaciones/inscribirse_public/'.$cap->id.'/'.rtrim(base64_encode($data['nombre'].'|'.$data['dni'].'|'.$data['email'].'|'. $data['telefono']), '='); 
 					$body = $this->load->view('capacitaciones/email-capacitacion-confirmar-inscripcion', $data, true);	
-			        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+			        $this->email->from('capacitaciones@somoscerveceros.com.ar', 'Somos Cerveceros');
 			        $this->email->to($data['email']);    
 			        $this->email->set_mailtype("html");
 			        $this->email->subject('Somos Cerveceros | Confirmar inscripción a capacitación');
@@ -170,7 +170,7 @@ class Capacitaciones extends MY_Controller {
 					$this->session->set_flashdata('message', 'Para el momento de confirmar su inscripción no habia cupo, lo inscribimos en lista de espera y se le enviara un email si se libera una vacante');  
 				} 
 				
-		        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+		        $this->email->from('capacitaciones@somoscerveceros.com.ar', 'Somos Cerveceros');
 		        $this->email->to($data['email']);    
 		        $this->email->set_mailtype("html");
 				$this->email->message($body);   
@@ -200,7 +200,7 @@ class Capacitaciones extends MY_Controller {
  
 		$res = $this->Eventos_Model->desinscribirse_no_socio($id, $data);
 		$body = $this->load->view('capacitaciones/email-capacitacion-cancelar-inscripcion-public', $data, true);		 
-	        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
+	        $this->email->from('capacitaciones@somoscerveceros.com.ar', 'Somos Cerveceros');
         $this->email->to($data['email']);  
         $this->email->set_mailtype("html");
         $this->email->subject('Somos Cerveceros | Cancelada su inscripción');

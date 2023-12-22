@@ -6,19 +6,20 @@
             <div class="card-content">
 				<span class="card-title">PAQUETE FULL (único disponible)</span>
 				<p>
-					Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 12,
-					que se realizará en el Predio de “La Nave Creativa” perteneciente a la Nave Uncuyo ( https://g.page/naveuncuyo?share ).
-					Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines,
-					 entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 13 y domingo 14,
-					  los mismos se realizarán en La Nave Creativa y en 23 Ríos respectivamente.
+                    Acreditación, recepción con servicio de catering y cerveza elaborada especialmente para el festival del día viernes 18,
+					 que se realizará en Casa Histórica - Museo Nacional de la Independencia (Congreso 151, San Miguel de Tucumán)
+					 Ingreso a los espacios de conferencias y talleres prácticos, coffee break, acceso al sector de stands para la industria cervecera y afines,
+					 almuerzos de todo el evento. Tours por fábricas y lugares de interés, entrada libre al Encuentro de Camaradería y la premiacion del Cervecero del Año, 
+					 los días sábado 18 y domingo 20 en Hosteria Atahualpa Yupanqui ( Paysandu 2400, Tafi Viejo). Transporte ida y vuelta desde zona céntrica de San Miguel de Tucumán  
+					 hacia los destinos de actividades incluido
 
 				        
 				 </p>
 			</div>
 
 			 <div class="card-action">
-                    <b>PACK FULL SOCIOS $11000</b><br>
-					<b>PACK FULL NO SOCIOS $13000</b><br>
+                    <b>PACK FULL SOCIOS $28000 / PACK NO FULL SOCIOS $38000 </b><br>
+					
             </div>
 		</div>
 	</div>
@@ -49,13 +50,7 @@
 	<br>
 </div>
 	<?php } ?>
-	<div class="input-field col s12"> 
-	    <select name="id_paquete" required>
-	      <option value=""  selected>Seleccione PACK</option>
- 	      <option value="1" >PACK FULL</option>
-	    </select>
-    	<label for="id_paquete">Paquete </label>
-  </div>
+		<input type="hidden" name="id_paquete" value="0">
 	<div class="input-field col s12">
       <input class="form-control" maxlength="8" id="dni" name="dni" required type="number">
       <label for="dni">DNI</label>
@@ -74,10 +69,4 @@
 <br>
 <br>
 <br>
-<script>
-
-	$(document).ready(function() {
-		$('select').material_select();
-	});
-
-</script>
+ 

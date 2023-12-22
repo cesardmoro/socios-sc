@@ -110,3 +110,10 @@ td.confirmed {
     background: #b3dab3;
     transition: 0.3s;
 }
+
+select{
+    display:block;
+}
+i.material-icons.tooltipped {
+    padding-top: 6px;
+}

@@ -1,8 +1,8 @@
 <?php if(!empty($capacitaciones)) {?>
 	<?php foreach($capacitaciones as $capacitacion){?>
-
+	<form action="<?php echo base_url()?>capacitaciones/inscribirse/<?php echo $capacitacion->id; ?>" id="form-cap-<?php echo $capacitacion->id; ?>">
 		<div class="row">
-	        <div class="col s12 s12">
+	        <div class="col s12 s12"> 
 	          <div class="card">
 
 	            <div class="card-content ">
@@ -65,7 +65,7 @@
 					<?php if($capacitacion->inscripcion){?>
 	              		<a  class="btn red" href="<?php echo base_url()?>capacitaciones/desinscribirse/<?php echo $capacitacion->id; ?>">Cancelar Inscripción</a>
 	              	<?php } else {?>
-	             	 	<a class="btn green" href="<?php echo base_url()?>capacitaciones/inscribirse/<?php echo $capacitacion->id; ?>">Inscribirse
+	             	 	<a class="btn green" href="javascript:void(0)" onclick="inscribirse('<?php echo $capacitacion->id; ?>')">Inscribirse
 						<?php if($capacitacion->vacantes<=0){?>
 							en lista de espera
 						 <?php }?>
@@ -77,7 +77,7 @@
 	          </div>
 	        </div>
 	 	</div>
-
+	</form>
 	<?php } ?>
 <?php }else{
 	?>

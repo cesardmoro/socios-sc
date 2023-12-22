@@ -37,7 +37,7 @@ class Eventos_Model extends CI_Model {
 		return $this->db->row();
 	}
 
-	public function inscribirse($id_evento, $id_socio){
+	public function inscribirse($id_evento, $id_socio, $extra_fields){
 
 		$event = $this->db->select('*')->where('id', $id_evento)->where('fecha >=', date('Y-m-d'))->get('sc_eventos')->row();   
 		if($event){
@@ -62,7 +62,9 @@ class Eventos_Model extends CI_Model {
 			$row = $this->db->where('id_socio', $id_socio)->get('sc_eventos_inscripciones')->row();
 
 			if(!$row){ 
-				$reg = array('id_socio' => $id_socio, 'id_evento' => $id_evento, 'fecha_inscripcion' => date('Y-m-d H:i:s'));  
+				$reg = array('id_socio' => $id_socio, 'id_evento' => $id_evento, 'fecha_inscripcion' => date('Y-m-d H:i:s')); 
+				$reg['extrafield_1'] = array_key_exists('extrafield_1', $extra_fields) ? $extra_fields['extrafield_1'] : '';
+				$reg['extrafield_2'] = array_key_exists('extrafield_2', $extra_fields) ? $extra_fields['extrafield_2'] : '';
 				$this->db->insert('sc_eventos_inscripciones', $reg);
 				return true;
 			}else{
@@ -223,8 +225,8 @@ class Eventos_Model extends CI_Model {
 			
 	}
 	public function get_participantes($id_evento){
-
-		$this->db->select('ei.id as id , IFNULL(ei.id_socio, "No socio") as id_socio, ei.fecha_inscripcion, s.lastname, IFNULL(s.firstname, ei.nombre) as firstname, IFNULL(s.email, ei.email) as email, ifnull(s.phone_mobile, ei.telefono) as phone_mobile, s.datefin, CASE WHEN datefin < now() then "vencida" else "al dia" END as estado_couta, IFNULL(s.rowid, ei.dni) as dni');
+ 
+		$this->db->select('ei.id as id , IFNULL(ei.id_socio, "No socio") as id_socio, ei.fecha_inscripcion, s.lastname, IFNULL(s.firstname, ei.nombre) as firstname, IFNULL(s.email, ei.email) as email, ifnull(s.phone_mobile, ei.telefono) as phone_mobile, ,  ei.extrafield_1 as extrafield_1,  ei.extrafield_2 as extrafield_2, s.datefin, CASE WHEN datefin < now() then "vencida" else "al dia" END as estado_couta, IFNULL(s.rowid, ei.dni) as dni');
 		$this->db->from('sc_eventos_inscripciones ei');
 		$this->db->join('llx_adherent s', 's.rowid = ei.id_socio', 'left');
 		$this->db->order_by('fecha_inscripcion');

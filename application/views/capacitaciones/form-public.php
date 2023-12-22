@@ -1,7 +1,6 @@
 <?php if(!$cap) {?>
 <div class="row"> 
-<form action="" method="post">
-	<div class="input-field col s12">
+	<div class="input-field col s12">																												
       <input class="form-control " id="nombre" name="nombre" required type="text">
       <label for="nombre">Nombre y Apellido</label>
 	</div>
@@ -19,7 +18,6 @@
 	</div>
  	<button class="btn green" type="submit">Inscribirse</button>
 
-</form>
 </div> 
 <?php } else{
 	?>

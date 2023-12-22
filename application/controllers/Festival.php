@@ -14,18 +14,26 @@ class Festival extends MY_Controller {
 	}
 	public function index($id = null){
 		$socio = $this->session->userdata('socio');
-		if( !$socio || $socio->datefin >= date('Y-m-d')){
+		
+		/*if(!$socio) { 
+			$this->session->set_flashdata('message', 'Hasta el 28/06 la inscripcion es solo para socios');  redirect('login'); 
+		}*/
+		if($socio && $socio->datefin <= date('Y-m-d')) {
+			$this->session->set_flashdata('message', 'Tiene la cuota vencida, realice la compra sin estar logueado o normaliza tu cuota');  redirect('dashboard'); 
+		}
+		if( !$socio || $socio->datefin >= date('Y-m-d')){  
 			if(!$this->input->post()){
 				$output = array();
 				if($socio) $data = array('nro_socio' => $socio->rowid);
 				else $data = array();
-
+				$data['id_paquete'] = 1;
 				$output['output'] = $this->load->view('festival/index', $data, true);
 				if($socio)$this->load->view('main',(array)$output);
 				else $this->load->view('main_public',(array)$output);
 				
 			}else{
 				$data = $this->input->post();
+				$data['id_paquete'] = 1;  
 				if($data['nombre'] && $data['dni'] && $data['email'] && $data['telefono']){
 					$socio = $this->session->userdata('socio');
 					$id = ($socio) ? $socio->rowid : null; 
@@ -33,7 +41,7 @@ class Festival extends MY_Controller {
 					
 					$res = $this->Festival_Model->inscribir($id, $data);  
 					//if($res){ 
-						 
+						    
 						$body = $this->load->view('festival/email-paquete-'.$soc."1", array('id' => $res), true);
 				        $this->email->from('socios@somoscerveceros.com.ar', 'Somos Cerveceros');
 				        $this->email->to($data['email']);    

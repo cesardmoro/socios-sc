@@ -34,11 +34,22 @@ $(document).ready(function(){
 				layout: 'top',
 				dismissQueue: true
 			  });
-			  
+			   
 		  });
 	}); 
+	
 
 
 });
 
+
 })(jQuery)
+function inscribirse(id){
+	let form = document.getElementById('form-cap-'+id);
+	if(form.extrafield_1)
+		if(form.extrafield_1.value == "") return alert('Complete los campos');
+	if(form.extrafield_2) 
+		if(form.extrafield_2.value == "") return alert('Complete los campos');
+	form.submit();  
+	
+} 

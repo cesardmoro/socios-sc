@@ -32,6 +32,9 @@ class Admin extends MY_Controller {
 			$crud->set_field_upload('foto','assets/uploads/eventos');
 			$crud->add_action('Participantes', '', 'admin/inscripciones', 'green'); 
 			$crud->add_action('Link Publico', '', 'capacitaciones/capacitacion_public', 'green');
+			die('test');
+			$crud->callback_add_field('extrafield_1_values',  array($this, '_callback_extrafield_1')); 
+			$crud->callback_add_field('extrafield_2_values',  array($this, '_callback_extrafield_2'));
 			
 			$crud->field_type('oculto', 'dropdown', array('0' => 'NO', '1' => 'SI'));
 
@@ -42,7 +45,7 @@ class Admin extends MY_Controller {
 
 			$crud->unset_read();
 			$crud->unset_jquery();
- 
+
 			$output = $crud->render(); 
  
 			$this->load->view('main',(array)$output);
@@ -51,8 +54,14 @@ class Admin extends MY_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	} 
- 
-
+	function _callback_extrafield_1(){ 
+		return 'Ingrese Label|valores separados por ,<br>
+		 ejemplo Provincia|Buenos Aires,Mendoza,Jujuy
+		 <input type="text" name="extrafield_1_values">'
+	}
+	function _callback_extrafield_2(){
+		return '<input type="text" name="extrafield_2_values">'
+	}
 	function _callback_default_email($value, $row){
 		
 		if(!$value) {

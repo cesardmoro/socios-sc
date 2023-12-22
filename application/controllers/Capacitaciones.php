@@ -13,10 +13,10 @@ class Capacitaciones extends MY_Controller {
 		//$this->load->config('email');
 	}
 	public function inscribirse($id){
-		if($this->session->userdata('socio')){
-			$socio = $this->session->userdata('socio');
+		if($this->session->userdata('socio')){ 
+			$socio = $this->session->userdata('socio');  
 			if($socio->datefin >= date('Y-m-d')){   
-				$res = $this->Eventos_Model->inscribirse($id, $this->session->userdata('socio')->rowid);
+				$res = $this->Eventos_Model->inscribirse($id, $this->session->userdata('socio')->rowid, $this->input->get());
 				if($res){
 					$capacitacion = $this->Eventos_Model->get_capacitacion($id);
 	   		        $this->email->from('capacitaciones@somoscerveceros.com.ar', 'Somos Cerveceros');
@@ -35,7 +35,7 @@ class Capacitaciones extends MY_Controller {
 					$this->email->message( $body);    
 			        $r = $this->email->send(); 
 					$this->session->set_flashdata('message', 'Se ha inscripto a la capacitacion correctamente');        
-					redirect('Capacitaciones' ); 
+				    redirect('Capacitaciones' ); 
 				}
 			}
 			else{ 
@@ -176,7 +176,7 @@ class Capacitaciones extends MY_Controller {
 				$this->email->message($body);   
 		        $r = $this->email->send(); 
 		        
-				
+				 
 				setcookie("capacitacion-".$id, true); 
 
 				redirect('capacitaciones/capacitacion_public/'.$id );       

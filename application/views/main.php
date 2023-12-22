@@ -58,9 +58,16 @@
    	    <li>
    	    	<a href="<?php echo site_url('capacitaciones/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Capacitaciones">library_books</i>Capacitaciones</a>
    	    </li>
+		   <li> 
+   	    	<a target="_blank" href="https://chat.whatsapp.com/Cdh0vP89hXBHY1fMirvoYl">
+				<i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="WhatsApp">
+			  	 <img src="//somoscerveceros.com/socios//assets/img/whatsapp.png" style="height: 28px;margin-top: 4px;">
+				</i>WhatsApp
+			</a>
+   	    </li>
 	    <li>
-	      	<a href="<?php echo site_url('festival/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Festival">local_activity</i>Festival</a>
-	    </li>
+			<a href="<?php echo site_url('festival/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Festival">local_activity</i>Festival</a>
+		</li>
    	    </li>
 	    <li>
 	      	<a href="<?php echo site_url('concursos/')?>"><i class="material-icons tooltipped"  data-position="right" data-delay="20" data-tooltip="Devoluciones concursos">battery_full</i>Devoluciones concursos</a>
@@ -120,9 +127,9 @@
        		<div class="container">© 2008-2017 Somos Cerveceros<a class="right" href="https://github.com/cesardmoro">Desarrollado por Cesar Moro - Socio 977</a></div>  
         </footer>
 		<script  type="text/javascript" charset="utf-8" async defer>
-			$(document).ready(function() {
+			/*$(document).ready(function() {
 		   		$('select').material_select();
-		 	});
+		 	});*/
 		</script>
 </body>
 </html>

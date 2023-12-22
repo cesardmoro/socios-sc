@@ -38,6 +38,15 @@ class Socio extends CI_Controller {
 		$view = $this->load->view('socio/cuota_al_dia', array('dni' => $dni, 'numero' => $numero), true);
 		$this->load->view('base', array('view' => $view)); 
 	}
+	public function asociate()
+	{
+		 
+		
+			
+
+		$view = $this->load->view('socio/asociate', array(), true);
+		$this->load->view('base', array('view' => $view)); 
+	}
 	public function cuota_carnet($carnetId){
 		header('Content-Type: application/json');
 		$r = [];

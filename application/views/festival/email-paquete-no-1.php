@@ -2,17 +2,16 @@ Confirmamos tu reserva <b>Cod. <?php echo str_pad($id, 5, 0, STR_PAD_LEFT);?></b
 <br>
 
 
-<b>PACK FULL NO SOCIOS $13000</b><br>
+<b>PACK FULL NO SOCIOS $38000</b><br>
 <br> 
 PACK FULL NO SOCIOS Somos Cerveceros hasta agotar stock:
 <br><b>
- $13000 finales no socios </b><br><br>
+ $38000 finales no socios </b><br><br>
 
-Acreditación, recepción con servicio de catering y cerveza especialmente elaborada para el festival del día viernes 12, que se realizará en el Predio de “La Nave Creativa” perteneciente a la Nave Uncuyo ( https://g.page/naveuncuyo?share ). Ingreso a los espacios de conferencias y talleres prácticos, acceso al sector de Stands de productos para la industria cervecera y afines, entrada libre al Encuentro de Camaradería y a la premiación del Cervecero del Año los días sábado 13 y domingo 14, los mismos se realizarán en La Nave Creativa y en 23 Ríos respectivamente.
 
    
 La reserva se efectiviza cuando nos envíes el comprobante de Pago que podes realizar por los siguientes medios de pago:<br>
- > MercadoPago (en cuyo caso tiene incluido el interés que cobra el servicio del 6,5%) en el siguiente Link https://mpago.la/1isqGT4 <br>
+ > MercadoPago (en cuyo caso tiene incluido el interés que cobra el servicio del 6,5%) en el siguiente Link https://mpago.la/1u9vzGf <br>
  > Transferencia Bancaria a la Cuenta de la Asociación.<br>
  
 

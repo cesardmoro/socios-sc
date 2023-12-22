@@ -1,10 +1,10 @@
-
-	<div class="row">
+<form  method="post" action=" <?php if($socio) { echo base_url()."capacitaciones/inscribirse/".$capacitacion->id; }?>" id="form-cap-<?php echo $capacitacion->id; ?>">
+	<div class="row">  
         <div class="col s12 s12">
           <div class="card">
             <div class="card-content "> 
               <span class="card-title"><?php echo $capacitacion->titulo; ?></span>
-              	<div class="row">
+              	<div class="row"> 
 	              <div class="col s12">
 
              		<?php if($capacitacion->foto){?> 
@@ -44,6 +44,7 @@
 		              <strong>Valor no socio:</strong><span>  $   <?php echo $capacitacion->valor_no_socio; ?></span>
 		              </div>
 	              <?php }?>
+
 	               <?php if($capacitacion->vacantes<=0){?>
 						<div class="col s12">
 		              	<h5>** Cupos completos **</h5>
@@ -55,8 +56,8 @@
             <?php if($socio) {?>
 				<?php if($capacitacion->inscripcion){?>
               		<a  href="<?php echo base_url()?>capacitaciones/desinscribirse/<?php echo $capacitacion->id; ?>">Cancelar Inscripción</a>
-              	<?php } else {?>
-             	 	<a href="<?php echo base_url()?>capacitaciones/inscribirse/<?php echo $capacitacion->id; ?>">Inscribirse
+              	<?php } else {?> 
+					<a class="btn green" href="javascript:void(0)" onclick="inscribirse('<?php echo $capacitacion->id; ?>')">Inscribirse
 					<?php if($capacitacion->vacantes<=0){?>
 						en lista de espera
 					 <?php }?>
@@ -74,3 +75,4 @@
         </div>
  	</div>
 
+			 </form>
